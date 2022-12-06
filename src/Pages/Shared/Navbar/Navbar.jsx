@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
-import { FaTimes, FaBars,FaCode } from 'react-icons/fa';
+import { FaTimes, FaBars,FaCode,FaHome } from 'react-icons/fa';
 
 const Navbar = () => {
 	const [click, setClick] = useState(false);
@@ -23,8 +23,9 @@ const Navbar = () => {
 						<NavLink
 							to="/"
 							activeclassname="active"
-							className="nav-links"
+							className="nav-links flex items-center gap-2"
 							onClick={handleClick}>
+							<FaHome/>
 							Home
 						</NavLink>
 					</li>
@@ -32,9 +33,22 @@ const Navbar = () => {
 						<NavLink
 							to="/about"
 							activeclassname="active"
-							className="nav-links"
+							className="nav-links flex items-center gap-2"
 							onClick={handleClick}>
+							<FaHome/>
+							
 							About
+						</NavLink>
+					</li>
+					<li className="nav-item">
+						<NavLink
+							to="/about"
+							activeclassname="active"
+							className="nav-links flex items-center gap-2"
+							onClick={handleClick}>
+							<FaHome/>
+							
+							Projects
 						</NavLink>
 					</li>
 					
