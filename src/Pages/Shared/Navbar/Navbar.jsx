@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
-import { FaTimes, FaBars,FaCode,FaHome } from 'react-icons/fa';
+import { FaTimes, FaBars, FaCode, FaHome } from 'react-icons/fa';
+import { AiOutlineFundProjectionScreen, AiFillInfoCircle } from 'react-icons/ai';
 
 const Navbar = () => {
 	const [click, setClick] = useState(false);
@@ -11,10 +12,10 @@ const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<div className="nav-container">
-				<NavLink  to="/" className="nav-logo font-extrabold flex gap-2">
+				<NavLink to="/" className="nav-logo font-extrabold flex gap-2">
 					Sajjad
 					<span>
-						<FaCode/>
+						<FaCode />
 					</span>
 				</NavLink>
 
@@ -25,7 +26,7 @@ const Navbar = () => {
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
 							onClick={handleClick}>
-							<FaHome/>
+							<FaHome />
 							Home
 						</NavLink>
 					</li>
@@ -35,23 +36,20 @@ const Navbar = () => {
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
 							onClick={handleClick}>
-							<FaHome/>
-							
+							<AiFillInfoCircle />
 							About
 						</NavLink>
 					</li>
 					<li className="nav-item">
 						<NavLink
-							to="/about"
+							to="/projects"
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
 							onClick={handleClick}>
-							<FaHome/>
-							
+							<AiOutlineFundProjectionScreen />
 							Projects
 						</NavLink>
 					</li>
-					
 				</ul>
 				<div className="nav-icon" onClick={handleClick}>
 					<span>{click ? <FaTimes /> : <FaBars />}</span>
