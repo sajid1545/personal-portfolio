@@ -23,6 +23,7 @@ const Navbar = () => {
 					<li className="nav-item">
 						<NavLink
 							to="/"
+							
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
 							onClick={handleClick}>

@@ -8,6 +8,10 @@
     --purple: #DA9EF6;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: "Raleway", serif !important;
