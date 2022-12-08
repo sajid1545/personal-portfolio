@@ -4,6 +4,10 @@
 @tailwind utilities;
 
 
+:root {
+    --purple: #DA9EF6;
+}
+
 body {
     margin: 0;
     font-family: "Raleway", serif !important;

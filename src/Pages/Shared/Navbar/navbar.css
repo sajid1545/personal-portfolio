@@ -95,11 +95,14 @@
         top: 80px;
         left: -110%;
         opacity: 1;
+
         transition: all 0.5s ease;
     }
 
     .nav-menu.active {
-        background: #1f5156;
+        background: rgba(21, 19, 19, 0.9);
+        backdrop-filter: blur(5.5px);
+        -webkit-backdrop-filter: blur(5.5px);
         left: 0px;
         opacity: 1;
         transition: all 0.5s ease;
@@ -107,7 +110,7 @@
     }
 
     .nav-item .active {
-        color: #ffdd40;
+        color: #CE5FF8;
         border: none;
     }
 
@@ -125,6 +128,6 @@
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
-        color: #ffdd40;
+        color: #CE5FF8;
     }
 }
