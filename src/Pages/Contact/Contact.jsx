@@ -45,7 +45,7 @@ const Contact = () => {
 				Get In Touch
 			</h1>
 
-			<div className="bg-slate-900  p-8 flex items-center rounded-xl gap-5  shadow-[4.0px_8.0px_8.0px_rgba(206,95,248)] cursor-pointer my-10">
+			<div className="bg-slate-900  p-8 flex flex-col lg:flex-row items-center rounded-xl gap-5  shadow-[4.0px_8.0px_8.0px_rgba(206,95,248)] cursor-pointer my-10">
 				{/* left side of form */}
 				<div>
 					<div className="">
@@ -63,7 +63,7 @@ const Contact = () => {
 
 				{/* right side of form */}
 
-				<div className="w-2/4">
+				<div className="w-[90%] lg:w-2/4">
 					<form ref={form} onSubmit={sendEmail}>
 						<div className="">
 							<div>
