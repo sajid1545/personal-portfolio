@@ -1,13 +1,10 @@
 import React from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
-import './particle.css'
+import './particle.css';
 
 function Particle() {
 	const particlesInit = async (main) => {
-		console.log(main);
-
-		
 		await loadFull(main);
 	};
 
