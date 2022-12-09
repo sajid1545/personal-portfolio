@@ -1,12 +1,15 @@
 import emailjs from '@emailjs/browser';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Swal from 'sweetalert2';
 import contactPic from '../../assets/contact-r.png';
+import SmallSpinner from '../Shared/Spinners/SmallSpinner';
 
 const Contact = () => {
 	// console.log(import.meta.env.VITE_SERVICE_ID);
 	// console.log(import.meta.env.VITE_TEMPLATE_ID);
 	// console.log(import.meta.env.VITE_USER_ID);
+
+	const [loading, setLoading] = useState(false);
 
 	const form = useRef();
 
@@ -15,6 +18,7 @@ const Contact = () => {
 	const sendEmail = (e) => {
 		e.preventDefault();
 
+		setLoading(true);
 		emailjs
 			.sendForm(
 				import.meta.env.VITE_SERVICE_ID,
@@ -30,9 +34,11 @@ const Contact = () => {
 						icon: 'success',
 						title: 'Message sent Successfully',
 					});
+					setLoading(false);
 				},
 				(error) => {
 					console.log(error.text);
+					setLoading(false);
 				}
 			);
 
@@ -40,7 +46,7 @@ const Contact = () => {
 	};
 
 	return (
-		<div className="w-[90%] mx-auto  my-10 h-screen  ">
+		<div className="w-[90%] mx-auto  my-10   ">
 			<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[rgb(206,95,248)] ">
 				Get In Touch
 			</h1>
@@ -56,7 +62,7 @@ const Contact = () => {
 						</p>
 					</div>
 
-					<div className='p-10 animate-pulse'>
+					<div className="p-10 animate-pulse">
 						<img src={contactPic} alt="" className="rounded-3xl" />
 					</div>
 				</div>
@@ -90,11 +96,17 @@ const Contact = () => {
 									className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
 							</div>
 							<div className="mt-8">
-								<button
-									type="submit"
-									className="uppercase glow-on-hover  text-sm font-bold tracking-wide   shadow-violet-500/50 shadow-2xl text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
-									Send Message
-								</button>
+								{loading ? (
+									<SmallSpinner />
+								) : (
+									<>
+										<button
+											type="submit"
+											className="uppercase glow-on-hover  text-sm font-bold tracking-wide   shadow-violet-500/50 shadow-2xl text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
+											Send Message
+										</button>
+									</>
+								)}
 							</div>
 						</div>
 					</form>
