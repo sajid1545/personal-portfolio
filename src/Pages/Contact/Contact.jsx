@@ -3,12 +3,12 @@ import contactPic from '../../assets/contact-me.jpg';
 
 const Contact = () => {
 	return (
-		<div className="w-[90%] mx-auto  my-10 ">
+		<div className="w-[90%] mx-auto  my-10 h-screen  ">
 			<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[rgb(206,95,248)] ">
 				Get In Touch
 			</h1>
 
-			<div className="bg-slate-900  p-8 flex items-center rounded-xl gap-5  shadow-[4.0px_8.0px_8.0px_rgba(206,95,248)] cursor-pointer">
+			<div className="bg-slate-900  p-8 flex items-center rounded-xl gap-5  shadow-[4.0px_8.0px_8.0px_rgba(206,95,248)] cursor-pointer my-10">
 				{/* left side of form */}
 				<div>
 					<div className="">
@@ -26,22 +26,22 @@ const Contact = () => {
 				{/* right side of form */}
 
 				<div className="w-2/4">
-					<div class="">
+					<div className="">
 						<div>
-							<span class="uppercase text-sm  font-bold">Full Name</span>
+							<span className="uppercase text-sm  font-bold">Full Name</span>
 							<input
-								class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+								className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
 								type="text"
 								placeholder=""
 							/>
 						</div>
 
-						<div class="mt-8">
-							<span class="uppercase text-sm  font-bold">Message</span>
-							<textarea class="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+						<div className="mt-8">
+							<span className="uppercase text-sm  font-bold">Message</span>
+							<textarea className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
 						</div>
-						<div class="mt-8">
-							<button class="uppercase glow-on-hover  text-sm font-bold tracking-wide   shadow-violet-500/50 shadow-2xl text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
+						<div className="mt-8">
+							<button className="uppercase glow-on-hover  text-sm font-bold tracking-wide   shadow-violet-500/50 shadow-2xl text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
 								Send Message
 							</button>
 						</div>

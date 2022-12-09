@@ -4,7 +4,7 @@ import myPic from '../../assets/sajid-bg.png';
 
 const About = () => {
 	return (
-		<div id='about' className="my-10">
+		<div id='about' className="my-10 h-screen">
 			<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[rgb(206,95,248)] ">About Me</h1>
 
 			<div className="flex justify-center  items-center w-[95%] gap-10 mx-auto">

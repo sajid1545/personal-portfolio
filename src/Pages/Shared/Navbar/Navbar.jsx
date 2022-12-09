@@ -14,7 +14,7 @@ const Navbar = () => {
 		<nav className="navbar">
 			<div className="nav-container">
 				<NavLink to="/" className="nav-logo font-extrabold flex gap-2">
-					<img src={logo} alt="" className='w-[20%]' />
+					<img src={logo} alt="" className="w-[20%]" />
 				</NavLink>
 
 				<ul className={click ? 'nav-menu active' : 'nav-menu'}>
