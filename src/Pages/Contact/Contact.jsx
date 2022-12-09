@@ -69,6 +69,7 @@ const Contact = () => {
 							<div>
 								<span className="uppercase text-sm  font-bold">Full Name</span>
 								<input
+									name="user_name"
 									className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
 									type="text"
 								/>
@@ -76,6 +77,7 @@ const Contact = () => {
 							<div className="my-5">
 								<span className="uppercase text-sm  font-bold">Email</span>
 								<input
+									name="user_email"
 									className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
 									type="email"
 								/>
@@ -83,7 +85,9 @@ const Contact = () => {
 
 							<div className="mt-8">
 								<span className="uppercase text-sm  font-bold">Message</span>
-								<textarea className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+								<textarea
+									name="message"
+									className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
 							</div>
 							<div className="mt-8">
 								<button
