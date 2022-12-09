@@ -17,8 +17,8 @@ const Projects = () => {
 					<div className="block rounded-xl  p-6  sm:p-8 cursor-pointer ">
 						<img
 							alt="Art"
-							src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-							className="h-96 w-full object-cover rounded-lg"
+							src="https://i.ibb.co/5R4PYgk/Laptop-city.jpg"
+							className="h-96 w-full  bg-cover rounded-lg"
 						/>
 						<div className="mt-5">
 							<h3 className="text-3xl font-extrabold text-center my-3">Laptop City</h3>
@@ -56,8 +56,8 @@ const Projects = () => {
 					<div className="block mx-auto rounded-xl  p-6  sm:p-8 cursor-pointer ">
 						<img
 							alt="Art"
-							src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-							className="h-96 w-full object-cover rounded-lg"
+							src="https://i.ibb.co/DkC0Q04/Nikah-photography.jpg"
+							className="h-96 w-full bg-cover rounded-lg"
 						/>
 						<div className="mt-5">
 							<h3 className="text-3xl font-extrabold text-center my-3">Nikah Photography</h3>
@@ -95,30 +95,30 @@ const Projects = () => {
 					<div className="block mx-auto rounded-xl  p-6  sm:p-8 cursor-pointer ">
 						<img
 							alt="Art"
-							src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-							className="h-96 w-full object-cover rounded-lg"
+							src="https://i.ibb.co/2y9Kjp1/Epic-coding.jpg"
+							className="h-96 w-full bg-cover rounded-lg"
 						/>
 						<div className="mt-5">
-							<h3 className="text-3xl font-extrabold text-center my-3">Donation-X</h3>
+							<h3 className="text-3xl font-extrabold text-center my-3">Epic Coding</h3>
 
 							<p className="mt-2 text-md text-center ">
-								Nikah photography is a personal service app for wedding photographers. It is a MERN
-								Stack project. I have used HTML, CSS, Tailwind CSS, React.js, Express.js, MongoDB,
-								and Firebase.
+								Epic Coding is an online education platform . It is a MERN Stack project. I have
+								used HTML, CSS, Tailwind CSS, React.js, Express.js, MongoDB, and Firebase.Users can
+								select any of the courses from available courses.
 							</p>
 
 							<div className="grid grid-cols-3 gap-5 mt-5 place-items-center">
-								<a href="" target="_blank">
+								<a href="https://github.com/sajid1545/epic-coding_client" target="_blank">
 									<button className="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#551a8b] rounded-lg hover:bg-[#9400d3] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
 										<span className="mx-1">Client Code</span>
 									</button>
 								</a>
-								<a href="" target="_blank">
+								<a href="https://github.com/sajid1545/epic-coding_server" target="_blank">
 									<button className="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#551a8b] rounded-lg hover:bg-[#9400d3] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
 										<span className="mx-1">Server Code</span>
 									</button>
 								</a>
-								<a href="" target="_blank">
+								<a href="https://assignment-10-epic-coding.web.app/" target="_blank">
 									<button className="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#551a8b] rounded-lg hover:bg-[#9400d3] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
 										<span className="mx-1">Live site</span>
 									</button>

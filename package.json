@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@emailjs/browser": "^3.10.0",
 		"animate.css": "^4.1.1",
 		"daisyui": "^2.42.1",
 		"react": "^18.2.0",
@@ -20,6 +21,7 @@
 		"react-router-dom": "^6.4.4",
 		"react-scroll-to-top": "^3.0.0",
 		"react-tsparticles": "^2.6.0",
+		"sweetalert2": "^11.6.15",
 		"tsparticles": "^2.6.0"
 	},
 	"devDependencies": {
