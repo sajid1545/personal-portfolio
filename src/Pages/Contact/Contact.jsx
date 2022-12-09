@@ -13,7 +13,7 @@ const Contact = () => {
 
 	const form = useRef();
 
-	console.log(form);
+
 
 	const sendEmail = (e) => {
 		e.preventDefault();
@@ -47,8 +47,8 @@ const Contact = () => {
 
 	return (
 		<div className="w-[90%] mx-auto  my-10   ">
-			<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[rgb(206,95,248)] ">
-				Get In Touch
+			<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[#ce5ff8] ">
+				Contact Me
 			</h1>
 
 			<div className="bg-slate-900  p-8 flex flex-col lg:flex-row items-center rounded-xl gap-5  shadow-[4.0px_8.0px_8.0px_rgba(206,95,248)] cursor-pointer my-10">
@@ -70,13 +70,16 @@ const Contact = () => {
 				{/* right side of form */}
 
 				<div className="w-[90%] lg:w-2/4">
+					<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[rgb(206,95,248)] ">
+						Get In Touch
+					</h1>
 					<form ref={form} onSubmit={sendEmail}>
 						<div className="">
 							<div>
 								<span className="uppercase text-sm  font-bold">Full Name</span>
 								<input
 									name="user_name"
-									className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+									className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline   focus:outline-offset-4 focus:outline-[#bb44ea] focus:shadow-outline"
 									type="text"
 								/>
 							</div>
@@ -84,7 +87,7 @@ const Contact = () => {
 								<span className="uppercase text-sm  font-bold">Email</span>
 								<input
 									name="user_email"
-									className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+									className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline   focus:outline-offset-4 focus:outline-[#bb44ea] focus:shadow-outline"
 									type="email"
 								/>
 							</div>
@@ -93,7 +96,7 @@ const Contact = () => {
 								<span className="uppercase text-sm  font-bold">Message</span>
 								<textarea
 									name="message"
-									className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+									className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline   focus:outline-offset-4 focus:outline-[#bb44ea] focus:shadow-outline"></textarea>
 							</div>
 							<div className="mt-8">
 								{loading ? (
