@@ -19,7 +19,7 @@ const Banner = () => {
 			<a
 				target="_blank"
 				href="https://drive.google.com/file/d/12EhVHS0PJwue7XtpgIMbl3XxmjkIs9dG/view?usp=share_link">
-				<button className="glow-on-hover mt-10 px-14 py-4 font-extrabold text-xl" type="button">
+				<button className="glow-on-hover bg-[#191328] mt-10 px-14 py-4 font-extrabold text-xl" type="button">
 					See My Resume
 				</button>
 			</a>
