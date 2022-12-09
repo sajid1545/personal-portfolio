@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import myPic from '../../assets/sajid-bg.png';
+import Technologies from './../Technologies/Technologies';
 
 const About = () => {
 	return (
@@ -20,6 +21,8 @@ const About = () => {
 						<img src={myPic} alt="" className="" />
 					</div>
 			</div>
+
+			<Technologies/>
 		</div>
 	);
 };
