@@ -13,7 +13,7 @@ const Projects = () => {
 
 			<div className="w-[95%] mx-auto grid grid-cols-1  lg:grid-cols-2 gap-10 place-items-center">
 				{/* project - 1 */}
-				<div className="rounded-2xl  shadow-[0_10px_20px_0px_rgba(206,95,248,_0.7)]  p-1  w-[600px]  my-10 ">
+				<div className="rounded-2xl  shadow-[0_10px_20px_0px_rgba(206,95,248,_0.7)]  p-1  lg:w-[600px]  my-10 ">
 					<div className="block rounded-xl  p-6  sm:p-8 cursor-pointer ">
 						<img
 							alt="Art"
@@ -52,7 +52,7 @@ const Projects = () => {
 
 				{/* project - 2  */}
 
-				<div className="rounded-2xl  shadow-[0_10px_20px_rgba(206,95,248,_0.7)]  p-1  w-[600px] my-10">
+				<div className="rounded-2xl  shadow-[0_10px_20px_rgba(206,95,248,_0.7)]  p-1  lg:w-[600px] my-10">
 					<div className="block mx-auto rounded-xl  p-6  sm:p-8 cursor-pointer ">
 						<img
 							alt="Art"
@@ -91,7 +91,7 @@ const Projects = () => {
 
 				{/* project - 3 */}
 
-				<div className="rounded-2xl  shadow-[0_10px_20px_rgba(206,95,248,_0.7)]  p-1  w-[600px] my-10">
+				<div className="rounded-2xl  shadow-[0_10px_20px_rgba(206,95,248,_0.7)]  p-1  lg:w-[600px] my-10">
 					<div className="block mx-auto rounded-xl  p-6  sm:p-8 cursor-pointer ">
 						<img
 							alt="Art"

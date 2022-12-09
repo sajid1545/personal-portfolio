@@ -4,7 +4,7 @@ import MovingText from 'react-moving-text';
 
 const Banner = () => {
 	return (
-		<div className="flex h-screen justify-center items-center flex-col  ">
+		<div className="flex h-screen justify-center items-center flex-col  mb-10  ">
 			{/* <MovingText
 				type="pulse"
 				duration="1500ms"

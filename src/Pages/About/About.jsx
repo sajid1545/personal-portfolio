@@ -10,7 +10,7 @@ const About = () => {
 
 			<div className="flex justify-center flex-col-reverse lg:flex-row  items-center w-[95%] gap-10 mx-auto">
 				<div className="my-info w-full lg:w-[75%] text-center lg:text-left">
-						<p className="text-3xl">
+						<p className="text-3xl mb-10">
 							Hi, I am <span className="font-extrabold text-[#CE5FF8] ">Sajjad Abdullah</span> from{' '}
 							<span className="font-extrabold text-[#CE5FF8]">Chittagong, Bangladesh.</span> I am
 							currently pursuing BSc. in Information Technology. I am passionate Web Developer who love building Web applications with JavaScript/React.js/express.js and some other cool libraries and frameworks
@@ -21,8 +21,8 @@ const About = () => {
 						<img src={myPic} alt="" className="" />
 					</div>
 			</div>
+			{/* <Technologies/> */}
 
-			<Technologies/>
 		</div>
 	);
 };
