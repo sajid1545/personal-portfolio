@@ -9,9 +9,9 @@ const Home = () => {
 			{/* <Particle/> */}
 			<Banner />
 
-			<AnimationOnScroll animateIn="animate__bounceInUp">
-				<About />
-			</AnimationOnScroll>
+			<About />
+			{/* <AnimationOnScroll animateIn="animate__bounceInUp">
+			</AnimationOnScroll> */}
 		</div>
 	);
 };

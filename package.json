@@ -15,6 +15,7 @@
 		"react-animation-on-scroll": "^5.1.0",
 		"react-dom": "^18.2.0",
 		"react-icons": "^4.7.1",
+		"react-loader-spinner": "^5.3.4",
 		"react-moving-text": "^0.0.7",
 		"react-router-dom": "^6.4.4",
 		"react-tsparticles": "^2.6.0",
