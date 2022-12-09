@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
-import contactPic from '../../assets/contact-me.jpg';
 import emailjs from '@emailjs/browser';
+import React, { useRef } from 'react';
 import Swal from 'sweetalert2';
+import contactPic from '../../assets/contact-r.png';
 
 const Contact = () => {
 	// console.log(import.meta.env.VITE_SERVICE_ID);
@@ -56,8 +56,8 @@ const Contact = () => {
 						</p>
 					</div>
 
-					<div>
-						<img src={contactPic} alt="" className="p-5" />
+					<div className='p-10 animate-pulse'>
+						<img src={contactPic} alt="" className="rounded-3xl" />
 					</div>
 				</div>
 
