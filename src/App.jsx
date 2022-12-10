@@ -8,7 +8,17 @@ import { router } from './Routes/routes';
 
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 
+//import
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function App() {
+	//useEffect
+	useEffect(() => {
+		AOS.init();
+		AOS.refresh();
+	}, []);
+
 	const [loading, setLoading] = useState(false);
 	useEffect(() => {
 		setLoading(true);

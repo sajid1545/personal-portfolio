@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
 import { FaTimes, FaBars, FaCode, FaHome } from 'react-icons/fa';
-import { AiOutlineFundProjectionScreen, AiFillInfoCircle,AiFillFile } from 'react-icons/ai';
+import { AiOutlineFundProjectionScreen, AiFillInfoCircle, AiFillFile } from 'react-icons/ai';
 import logo from '../../../assets/logo-png/logo-no-background.png';
 
 const Navbar = () => {
@@ -40,22 +40,22 @@ const Navbar = () => {
 					</li>
 					<li className="nav-item">
 						<NavLink
-							to="/about"
-							activeclassname="active"
-							className="nav-links flex items-center gap-2"
-							onClick={handleClick}>
-							<AiFillInfoCircle />
-							About
-						</NavLink>
-					</li>
-					<li className="nav-item">
-						<NavLink
 							to="/projects"
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
 							onClick={handleClick}>
 							<AiOutlineFundProjectionScreen />
 							Projects
+						</NavLink>
+					</li>
+					<li className="nav-item">
+						<NavLink
+							to="/about"
+							activeclassname="active"
+							className="nav-links flex items-center gap-2"
+							onClick={handleClick}>
+							<AiFillInfoCircle />
+							About
 						</NavLink>
 					</li>
 				</ul>

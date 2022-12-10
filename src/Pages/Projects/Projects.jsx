@@ -7,8 +7,6 @@ const Projects = () => {
 
 	const [load, setLoad] = useState(false);
 
-	
-
 	useEffect(() => {
 		setLoad(true);
 		fetch('https://server-three-lake.vercel.app/projects')
@@ -18,7 +16,6 @@ const Projects = () => {
 				setLoad(false);
 			});
 	}, []);
-
 
 	if (load) {
 		return <MainSpinner />;
@@ -33,7 +30,9 @@ const Projects = () => {
 				<p className="text-2xl">Here are few projects i've worked on recently</p>
 			</div>
 
-			<div className="w-[95%] mx-auto grid grid-cols-1  lg:grid-cols-2 gap-10 place-items-center">
+			<div
+				data-aos="zoom-in-down"
+				className="w-[95%] mx-auto grid grid-cols-1  lg:grid-cols-2 gap-10 place-items-center">
 				{projects.map((project) => (
 					<ProjectCard key={project._id} project={project} />
 				))}
