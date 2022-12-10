@@ -8,6 +8,7 @@ import Projects from './../../Projects/Projects';
 const Home = () => {
 	return (
 		<div>
+
 			{/* <Particle/> */}
 			<Banner />
 
