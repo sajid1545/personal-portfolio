@@ -23,6 +23,7 @@
 		"react-scroll-to-top": "^3.0.0",
 		"react-tsparticles": "^2.6.0",
 		"sweetalert2": "^11.6.15",
+		"swiper": "^8.4.5",
 		"tsparticles": "^2.6.0"
 	},
 	"devDependencies": {

@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
+import MainSpinner from './../Shared/Spinners/MainSpinner';
 
 const Projects = () => {
 	const [projects, setProjects] = useState([]);
 
+	const [load, setLoad] = useState(false);
+
+	
+
 	useEffect(() => {
+		setLoad(true);
 		fetch('https://server-three-lake.vercel.app/projects')
 			.then((res) => res.json())
-			.then((data) => setProjects(data));
+			.then((data) => {
+				setProjects(data);
+				setLoad(false);
+			});
 	}, []);
 
+
+	if (load) {
+		return <MainSpinner />;
+	}
 
 	return (
 		<div>
