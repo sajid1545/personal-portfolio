@@ -9,7 +9,12 @@
 		"image1": "https://i.ibb.co/fvFHLKP/Web-capture-11-12-2022-11039-laptop-city-3d932-web-app.jpg",
 		"image2": "https://i.ibb.co/fHzJZzY/Web-capture-11-12-2022-1121-laptop-city-3d932-web-app.jpg",
 		"image3": "https://i.ibb.co/QvtHZLt/Web-capture-11-12-2022-11140-laptop-city-3d932-web-app.jpg",
-		"image4": "https://i.ibb.co/F87PCMF/Web-capture-11-12-2022-11118-laptop-city-3d932-web-app.jpg"
+		"image4": "https://i.ibb.co/F87PCMF/Web-capture-11-12-2022-11118-laptop-city-3d932-web-app.jpg",
+		"detail1": "Laptop City sales refurbished laptops around the world.",
+		"detail2": "There can be 3 types of user in this suite.While registering by default users will be give buyers role option, or they can choose seller role.",
+		"detail3": "Users with buyer role can purchase products and pay for its. Stripe is used for payment integration.",
+		"detail4": "JWT is used which will expire in 1 day (If the data doest not load that means yours JWT token has expired, so if you ever face such problems just log out and login again)",
+		"detail5": "Admin can see all types of users including sellers and buyers.Admin can verify sellers and also can delete them."
 	},
 	{
 		"title": "Nikah Photography",
@@ -21,7 +26,12 @@
 		"image1": "https://i.ibb.co/JpG8nL1/4.jpg",
 		"image2": "https://i.ibb.co/G5zv55x/1.jpg",
 		"image3": "https://i.ibb.co/f12g860/3.png",
-		"image4": "https://i.ibb.co/KNbHfJx/2.jpg"
+		"image4": "https://i.ibb.co/KNbHfJx/2.jpg",
+		"detail1": "This is a personal photography service app. In this app users can check out my services and add review",
+		"detail2": "In this app My services and Add review pages are protected, unless user is signed in, they can't view the content or use the functionalities of those pages.",
+		"detail3": "In this app user can sign in by Google and by using email. User must register first with email and password if he/she wish to sign in using email.",
+		"detail4": "User can check all the reviews users have give from My reviews page. Users can delete or update the the review text, user picture and user name.",
+		"detail5": "In this app if user is logged in, user can add services from add services page , and give review of the services from service details page."
 	},
 	{
 		"title": "Epic Coding",
@@ -33,6 +43,11 @@
 		"image1": "https://i.ibb.co/VWmcNg6/1.jpg",
 		"image2": "https://i.ibb.co/NWVJdDQ/2.png",
 		"image3": "https://i.ibb.co/QK6kYwh/3.png",
-		"image4": "https://i.ibb.co/DC3C9X9/4.jpg"
+		"image4": "https://i.ibb.co/DC3C9X9/4.jpg",
+		"detail1": "This is an online education platform app focused to Technology Development",
+		"detail2": "In this app there are bunch of courses from which users can select their desired course..Users can see the name of instructor, ratings, picture and many more details.",
+		"detail3": "In this app the checkout page is protected, unless the user is signedIn, user can not view content of checkout page.Checkout page will contain details about the course user purchased",
+		"detail4": "User can now reset their password by clicking forget password. User can view their password while typing now for both login and register form.",
+		"detail5": "In userProfile page user can change display name and profile picture.After changing users name, user profile user should reload the page to see the updated data.This is small bug, I am still working on it."
 	}
 ]
