@@ -1,13 +1,11 @@
 import emailjs from '@emailjs/browser';
 import React, { useRef, useState } from 'react';
 import Swal from 'sweetalert2';
-import contactPic from '../../assets/contact-me.jpg';
+import contactPic from '../../assets/contact-me-2.jpg';
 import SmallSpinner from '../Shared/Spinners/SmallSpinner';
 
 const Contact = () => {
-	// console.log(import.meta.env.VITE_SERVICE_ID);
-	// console.log(import.meta.env.VITE_TEMPLATE_ID);
-	// console.log(import.meta.env.VITE_USER_ID);
+
 
 	const [loading, setLoading] = useState(false);
 
@@ -54,8 +52,8 @@ const Contact = () => {
 				<div>
 					<div className="">
 						<h1 className="text-4xl font-extrabold">Lets talk about anything!</h1>
-						<p className="">
-							Hate forms? Send us an{' '}
+						<p className="mt-3">
+							Hate forms? Send me an{' '}
 							<span className="text-purple-700 font-bold hover:underline underline-offset-8 duration-500">
 								<a href="mailto:sajjadabdullah9962@gmail.com" className=''>email</a>
 							</span>{' '}
@@ -64,13 +62,13 @@ const Contact = () => {
 					</div>
 
 					<div className="p-10 animate-pulse">
-						<img src={contactPic} alt="" className="rounded-3xl" />
+						<img src={contactPic} alt="" className="contact-image rounded-3xl h-[600px] w-full p-5 -m-5 " />
 					</div>
 				</div>
 
 				{/* right side of form */}
 
-				<div className="w-[90%] lg:w-2/4">
+				<div className="w-[90%] lg:w-2/4 mx-auto">
 					<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[rgb(206,95,248)] ">
 						Get In Touch
 					</h1>

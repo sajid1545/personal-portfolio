@@ -4,6 +4,7 @@ import Home from './../Pages/Home/Home/Home';
 import About from './../Pages/About/About';
 import Projects from './../Pages/Projects/Projects';
 import ErrorPage from './../Pages/Shared/ErrorPage/ErrorPage';
+import ProjectDetail from './../Pages/Projects/ProjectDetail';
 
 export const router = createBrowserRouter([
 	{
@@ -22,6 +23,11 @@ export const router = createBrowserRouter([
 			{
 				path: '/projects',
 				element: <Projects />,
+			},
+			{
+				path: '/project/:id',
+				element: <ProjectDetail />,
+				loader: ({params}) => fetch(`https://server-three-lake.vercel.app/project/${params.id}`),
 			},
 		],
 	},

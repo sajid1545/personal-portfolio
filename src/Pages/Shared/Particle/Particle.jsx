@@ -47,23 +47,23 @@ function Particle() {
 				  "detectsOn": "window",
 				  "events": {
 					"onClick": {
-					  "enable": false,
-					  "mode": []
+					  "enable": true,
+					  "mode": "push"
 					},
 					"onDiv": {
 					  "selectors": [],
-					  "enable": false,
+					  "enable": true,
 					  "mode": [],
 					  "type": "circle"
 					},
 					"onHover": {
-					  "enable": false,
+					  "enable": true,
 					  "mode": [],
-					  "parallax": {
-						"enable": false,
-						"force": 2,
-						"smooth": 10
-					  }
+					//   "parallax": {
+					// 	"enable": true,
+					// 	"force": 2,
+					// 	"smooth": 10
+					//   }
 					},
 					"resize": {
 					  "delay": 0.5,

@@ -1,0 +1,29 @@
+[
+	{
+		"id": "1",
+		"title": "Laptop City",
+		"description": "Laptop City is a laptop reselling website. It is a MERN project. I have used HTML,CSS, Tailwind CSS, React.js, Express.js, MongoDB, and Firebase. Laptop city was about a refurbished Laptop reselling website.",
+		"picture": "https://i.ibb.co/5R4PYgk/Laptop-city.jpg",
+		"client": "https://github.com/sajid1545/laptop-city-cllient",
+		"server": "https://github.com/sajid1545/laptop-city-server",
+		"liveSite": "https://laptop-city-3d932.web.app/"
+	},
+	{
+		"id": "2",
+		"title": "Nikah Photography",
+		"description": "Nikah photography is a personal service app for wedding photographers. It is a MERN Stack project. I have used HTML, CSS, Tailwind CSS, React.js, Express.js, MongoDB, and Firebase.",
+		"picture": "https://i.ibb.co/DkC0Q04/Nikah-photography.jpg",
+		"client": "https://github.com/sajid1545/Nikah-photography_client",
+		"server": "https://github.com/sajid1545/Nikah-photography_server",
+		"liveSite": "https://assignment-11-cf2b9.web.app/"
+	},
+	{
+		"id": "3",
+		"title": "Epic Coding",
+		"description": "Epic Coding is an online education platform . It is a MERN Stack project. I have used HTML, CSS, Tailwind CSS, React.js, Express.js, MongoDB, and Firebase.Users can select any of the courses from available courses.",
+		"picture": "https://i.ibb.co/2y9Kjp1/Epic-coding.jpg",
+		"client": "https://github.com/sajid1545/epic-coding_client",
+		"server": "https://github.com/sajid1545/epic-coding_server",
+		"liveSite": "https://assignment-10-epic-coding.web.app/"
+	}
+]
