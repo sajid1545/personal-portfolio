@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 import React, { useRef, useState } from 'react';
 import Swal from 'sweetalert2';
-import contactPic from '../../assets/contact-r.png';
+import contactPic from '../../assets/contact-me.jpg';
 import SmallSpinner from '../Shared/Spinners/SmallSpinner';
 
 const Contact = () => {
@@ -12,8 +12,6 @@ const Contact = () => {
 	const [loading, setLoading] = useState(false);
 
 	const form = useRef();
-
-
 
 	const sendEmail = (e) => {
 		e.preventDefault();
@@ -51,13 +49,16 @@ const Contact = () => {
 				Contact Me
 			</h1>
 
-			<div className="bg-slate-900  p-8 flex flex-col lg:flex-row items-center rounded-xl gap-5  shadow-[4.0px_8.0px_8.0px_rgba(206,95,248)] cursor-pointer my-10">
+			<div className=" shadow-[0_10px_20px_rgba(206,95,248,_0.7)]   p-8 flex flex-col lg:flex-row  rounded-xl gap-5   cursor-pointer my-10">
 				{/* left side of form */}
 				<div>
 					<div className="">
 						<h1 className="text-4xl font-extrabold">Lets talk about anything!</h1>
 						<p className="">
-							Hate forms? Send us an <span className="text-purple-700 font-bold">email</span>{' '}
+							Hate forms? Send us an{' '}
+							<span className="text-purple-700 font-bold hover:underline underline-offset-8 duration-500">
+								<a href="mailto:sajjadabdullah9962@gmail.com" className=''>email</a>
+							</span>{' '}
 							instead.
 						</p>
 					</div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './banner.css';
-// import resume from '../../../assets/Resume/Sajjad Abdullah Web Developer.pdf'
+import { BsDownload } from 'react-icons/bs';
 
 const Banner = () => {
 	return (
@@ -32,15 +32,8 @@ const Banner = () => {
 					download="Sajjad-Abdullah Portfolio">
 					<button
 						type="button"
-						class="glow-on-hover bg-[#191328] mt-10 px-4 py-4 font-extrabold text-xl flex">
-						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-							/>
-						</svg>
+						className="glow-on-hover bg-[#191328] mt-10 px-4 py-4 font-extrabold text-xl flex">
+						<BsDownload className="h-6 w-6" />
 					</button>
 				</a>
 			</div>

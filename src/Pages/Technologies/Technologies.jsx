@@ -49,9 +49,9 @@ const Technologies = () => {
 	];
 
 	return (
-		<div className="mt-[150px] lg:mt-10">
+		<div className="mt-[150px] md:mt-[370px] lg:mt-10">
 			<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[rgb(206,95,248)] ">
-				Technologies
+				My Skills
 			</h1>
 
 			<div className="flex justify-center items-center gap-10  flex-wrap">

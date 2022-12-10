@@ -13,7 +13,7 @@ const About = () => {
 						<p className="text-3xl mb-10">
 							Hi, I am <span className="font-extrabold text-[#CE5FF8] ">Sajjad Abdullah</span> from{' '}
 							<span className="font-extrabold text-[#CE5FF8]">Chittagong, Bangladesh.</span> I am
-							currently pursuing BSc. in Information Technology. I am passionate Web Developer who love building Web applications with JavaScript/React.js/express.js and some other cool libraries and frameworks
+							currently pursuing BSc. in Information Technology. I am passionate Web Developer who love building Web applications with JavaScript, React.js, express.js and some other cool libraries and frameworks
 						</p>
 				</div>
 
