@@ -2,7 +2,7 @@ import React from 'react';
 
 const TechnologyCard = ({ tech }) => {
 	return (
-		<div className="mb-10 mt-5">
+		<div className="mt-10 mb-10">
 			<div className="group relative block  cursor-pointer mx-auto tech-card">
 				<img
 					alt="Developer"

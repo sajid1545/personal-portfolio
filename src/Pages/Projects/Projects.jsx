@@ -23,7 +23,7 @@ const Projects = () => {
 
 	return (
 		<div>
-			<div className="text-center font-extrabold  space-y-5 my-10">
+			<div className="text-center font-extrabold  space-y-5 my-20">
 				<h1 className="text-5xl underline  underline-offset-8 decoration-[#CE5FF8]">
 					My recent Projects
 				</h1>
@@ -32,7 +32,7 @@ const Projects = () => {
 
 			<div
 				data-aos="zoom-in-down"
-				className="w-[95%] mx-auto grid grid-cols-1  lg:grid-cols-2 gap-10 place-items-center">
+				className="w-[95%] mx-auto grid grid-cols-1  lg:grid-cols-2 gap-10 place-items-center ">
 				{projects.map((project) => (
 					<ProjectCard key={project._id} project={project} />
 				))}

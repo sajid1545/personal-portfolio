@@ -50,7 +50,7 @@ const Technologies = () => {
 	];
 
 	return (
-		<div className="mt-[150px] md:mt-[370px] lg:mt-10">
+		<div className="mt-[150px] md:mt-[370px] lg:mt-10 space-y-20">
 			<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[rgb(206,95,248)] ">
 				My Skills
 			</h1>
@@ -58,7 +58,7 @@ const Technologies = () => {
 			
 
 			<Marquee gradient={false} speed={150} pauseOnHover={true} >
-				<div className="flex justify-center items-center gap-10 mt-10 mb-20  flex-wrap">
+				<div className="flex justify-center items-center gap-10   flex-wrap">
 					{techs.map((tech) => (
 						<TechnologyCard key={tech.id} tech={tech} />
 					))}
