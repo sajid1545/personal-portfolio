@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
 import { FaTimes, FaBars, FaCode, FaHome } from 'react-icons/fa';
-import { AiOutlineFundProjectionScreen, AiFillInfoCircle, AiFillFile } from 'react-icons/ai';
+import { AiOutlineFundProjectionScreen,  AiFillFile } from 'react-icons/ai';
+import { FaPen } from 'react-icons/fa';
 import logo from '../../../assets/logo-png/logo-no-background.png';
 import { NavHashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
@@ -32,16 +33,6 @@ const Navbar = () => {
 					</li>
 					<li className="nav-item">
 						<NavLink
-							to="/blogs"
-							activeclassname="active"
-							className="nav-links flex items-center gap-2"
-							onClick={handleClick}>
-							<AiFillFile />
-							Blogs
-						</NavLink>
-					</li>
-					<li className="nav-item">
-						<NavLink
 							to="/projects"
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
@@ -52,6 +43,17 @@ const Navbar = () => {
 					</li>
 					<li className="nav-item">
 						<NavLink
+							to="/blogs"
+							activeclassname="active"
+							className="nav-links flex items-center gap-2"
+							onClick={handleClick}>
+							<FaPen />
+							Blogs
+						</NavLink>
+					</li>
+
+					{/* <li className="nav-item">
+						<NavLink
 							to="/about"
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
@@ -59,7 +61,7 @@ const Navbar = () => {
 							<AiFillInfoCircle />
 							About
 						</NavLink>
-						{/* <NavHashLink
+						<NavHashLink
 							smooth
 							to="/#about"
 							activeClassName="selected"
@@ -69,8 +71,8 @@ const Navbar = () => {
 							// etc...
 						>
 							About
-						</NavHashLink> */}
-					</li>
+						</NavHashLink>
+					</li> */}
 				</ul>
 				<div className="nav-icon" onClick={handleClick}>
 					<span>{click ? <FaTimes /> : <FaBars />}</span>

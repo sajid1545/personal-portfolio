@@ -58,7 +58,7 @@ const Technologies = () => {
 			
 
 			<Marquee gradient={false} speed={150} pauseOnHover={true} >
-				<div className="flex justify-center items-center gap-10  flex-wrap">
+				<div className="flex justify-center items-center gap-10 mt-10 mb-20  flex-wrap">
 					{techs.map((tech) => (
 						<TechnologyCard key={tech.id} tech={tech} />
 					))}
