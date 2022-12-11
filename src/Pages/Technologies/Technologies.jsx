@@ -1,5 +1,6 @@
 import React from 'react';
 import TechnologyCard from './TechnologyCard';
+import Marquee from 'react-fast-marquee';
 
 import html from '../../assets/icons/html.png';
 import css from '../../assets/icons/css3.png';
@@ -54,11 +55,15 @@ const Technologies = () => {
 				My Skills
 			</h1>
 
-			<div className="flex justify-center items-center gap-10  flex-wrap">
-				{techs.map((tech) => (
-					<TechnologyCard key={tech.id} tech={tech} />
-				))}
-			</div>
+			
+
+			<Marquee gradient={false} speed={150} pauseOnHover={true} >
+				<div className="flex justify-center items-center gap-10  flex-wrap">
+					{techs.map((tech) => (
+						<TechnologyCard key={tech.id} tech={tech} />
+					))}
+				</div>
+			</Marquee>
 		</div>
 	);
 };

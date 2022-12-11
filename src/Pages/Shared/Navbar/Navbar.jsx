@@ -4,6 +4,8 @@ import './navbar.css';
 import { FaTimes, FaBars, FaCode, FaHome } from 'react-icons/fa';
 import { AiOutlineFundProjectionScreen, AiFillInfoCircle, AiFillFile } from 'react-icons/ai';
 import logo from '../../../assets/logo-png/logo-no-background.png';
+import { NavHashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	const [click, setClick] = useState(false);
@@ -57,6 +59,17 @@ const Navbar = () => {
 							<AiFillInfoCircle />
 							About
 						</NavLink>
+						{/* <NavHashLink
+							smooth
+							to="/#about"
+							activeClassName="selected"
+							activeStyle={{ color: 'red' }}
+							className="nav-links flex items-center gap-2"
+							onClick={handleClick}
+							// etc...
+						>
+							About
+						</NavHashLink> */}
 					</li>
 				</ul>
 				<div className="nav-icon" onClick={handleClick}>
