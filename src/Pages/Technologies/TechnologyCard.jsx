@@ -18,6 +18,17 @@ const TechnologyCard = ({ tech }) => {
 					</div>
 				</div>
 			</div>
+			{/* <div class="group flex duration-500 flex-col items-center justify-center w-full max-w-sm mx-auto">
+				<div class="w-full h-64  bg-center bg-cover rounded-lg shadow-md  "
+				style={{backgroundImage: `url(${tech.picture})`}}
+				></div>
+
+				<div class="relative bottom-20 w-56 -mt-10 overflow-hidden  rounded-lg shadow-lg md:w-64">
+					<h3 class="hidden group-hover:block duration-700 py-2 font-bold tracking-wide text-center  uppercase ">
+						{  tech.title}
+					</h3>
+				</div>
+			</div> */}
 		</div>
 	);
 };

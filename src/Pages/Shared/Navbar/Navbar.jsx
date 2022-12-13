@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
-import { FaTimes, FaBars, FaCode, FaHome } from 'react-icons/fa';
-import { AiOutlineFundProjectionScreen,  AiFillFile } from 'react-icons/ai';
+import { FaTimes, FaBars, FaCode, FaHome, FaPhone } from 'react-icons/fa';
+import { AiOutlineFundProjectionScreen, AiFillFile } from 'react-icons/ai';
 import { FaPen } from 'react-icons/fa';
 import logo from '../../../assets/logo-png/logo-no-background.png';
-import { NavHashLink } from 'react-router-hash-link';
+import { HashLink, NavHashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -50,6 +50,29 @@ const Navbar = () => {
 							<FaPen />
 							Blogs
 						</NavLink>
+					</li>
+					<li className="nav-item">
+						{/* <NavLink
+							to="/blogs"
+							activeclassname="active"
+							className="nav-links flex items-center gap-2"
+							onClick={handleClick}>
+							<FaPhone />
+							Contact
+						</NavLink> */}
+
+						<HashLink
+							smooth
+							to="/#contact"
+							activeClassName="selected"
+							activeStyle={{ color: 'red' }}
+							className="nav-links flex items-center gap-2"
+							onClick={handleClick}
+							// etc...
+						>
+							<FaPhone />
+							Contact
+						</HashLink>
 					</li>
 
 					{/* <li className="nav-item">

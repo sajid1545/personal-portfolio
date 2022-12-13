@@ -42,7 +42,7 @@ const Contact = () => {
 	};
 
 	return (
-		<div className="w-[90%] mx-auto  my-10   ">
+		<div id='contact' className="w-[90%] mx-auto  my-10   ">
 			<h1 className="text-center my-10 font-extrabold text-5xl underline  underline-offset-8 decoration-[#ce5ff8] ">
 				Contact Me
 			</h1>
