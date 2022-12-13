@@ -49,5 +49,21 @@
 		"detail3": "In this app the checkout page is protected, unless the user is signedIn, user can not view content of checkout page.Checkout page will contain details about the course user purchased",
 		"detail4": "User can now reset their password by clicking forget password. User can view their password while typing now for both login and register form.",
 		"detail5": "In userProfile page user can change display name and profile picture.After changing users name, user profile user should reload the page to see the updated data.This is small bug, I am still working on it."
+	},
+	{
+		"title": "Donation - X",
+		"description": "Donation - X  is an online donation platform . It is a MERN Stack project. I have used HTML, CSS, Tailwind CSS, React.js, Express.js, MongoDB, and Firebase.Users can select any type of events from  available events.",
+		"picture": "https://i.ibb.co/ZgSnGdx/title.png",
+		"client": "https://github.com/sajid1545/Donation---X",
+		"liveSite": "https://donation-x-3ea9c.firebaseapp.com/",
+		"image1": "https://i.ibb.co/F7C9tPf/1.png",
+		"image2": "https://i.ibb.co/9TyyKxH/2.png",
+		"image3": "https://i.ibb.co/zhCG32v/3.png",
+		"image4": "https://i.ibb.co/8bpjVfW/4.png",
+		"detail1": "This is an donation event app focused on different types of Donation events",
+		"detail2": "In this app there are bunch of events from which users can select an event.Users can see details of the event, what time this event was posted",
+		"detail3": "In order to see about a donation user must be signed in first",
+		"detail4": "In donation details page users can select the event. Only admin can update a event",
+		"detail5": "If users select an event, it will appear in selected events page, from there user can delete the event selected by the user."
 	}
 ]

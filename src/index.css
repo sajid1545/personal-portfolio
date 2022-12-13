@@ -21,3 +21,13 @@ body {
     background-color: #0F0B18;
     color: white;
 }
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(to right, rgb(233, 213, 255), rgb(192, 132, 252), rgb(107, 33, 168));
+    transform-origin: 0%;
+}

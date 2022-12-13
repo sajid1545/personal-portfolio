@@ -107,16 +107,20 @@ const ProjectDetail = () => {
 								<span className="mx-1">Client Code</span>
 							</button>
 						</a>
-						<a href={server} target="_blank">
-							<button className="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#551a8b] rounded-lg hover:bg-[#9400d3] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-								<AiFillGithub />
 
-								<span className="mx-1">Server Code</span>
-							</button>
-						</a>
+						{!server ? null : (
+							<a href={server} target="_blank">
+								<button className="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#551a8b] rounded-lg hover:bg-[#9400d3] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+									<AiFillGithub />
+
+									<span className="mx-1">Server Code</span>
+								</button>
+							</a>
+						)}
+
 						<a href={liveSite} target="_blank">
 							<button className="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#551a8b] rounded-lg hover:bg-[#9400d3] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-								<BiLinkExternal/>
+								<BiLinkExternal />
 								<span className="mx-1">Live site</span>
 							</button>
 						</a>
