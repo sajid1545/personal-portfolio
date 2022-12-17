@@ -93,6 +93,6 @@
     54%,
     56%,
     100% {
-        text-shadow: 0 0 5px #CE5FF8, 0 0 15px #CE5FF8, 0 0 20px #CE5FF8, 0 0 40px #CE5FF8, 0 0 60px #551a8b, 0 0 10px #ff8d00, 0 0 98px #551a8b;
+        text-shadow: 0 0 5px #551a8b, 0 0 15px #551a8b, 0 0 20px #551a8b, 0 0 40px #551a8b, 0 0 60px #551a8b, 0 0 10px #ff8d00, 0 0 98px #551a8b;
     }
 }
