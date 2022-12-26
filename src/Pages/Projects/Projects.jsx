@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ProjectCard from './ProjectCard';
 import MainSpinner from './../Shared/Spinners/MainSpinner';
+import ProjectCard from './ProjectCard';
 
 const Projects = () => {
 	const [projects, setProjects] = useState([]);
@@ -9,7 +9,7 @@ const Projects = () => {
 
 	useEffect(() => {
 		setLoad(true);
-		fetch('https://server-three-lake.vercel.app/projects')
+		fetch('https://portfolio-server-indol.vercel.app/projects')
 			.then((res) => res.json())
 			.then((data) => {
 				setProjects(data);
