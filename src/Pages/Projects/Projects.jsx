@@ -31,7 +31,7 @@ const Projects = () => {
 			</div>
 
 			<div
-				data-aos="zoom-in-down"
+				// data-aos="zoom-in-down"
 				className="w-[95%] mx-auto grid grid-cols-1  lg:grid-cols-2 gap-10 place-items-center ">
 				{projects.map((project) => (
 					<ProjectCard key={project._id} project={project} />

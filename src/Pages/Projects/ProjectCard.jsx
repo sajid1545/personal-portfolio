@@ -1,12 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 
 const ProjectCard = ({ project }) => {
 	const { _id, title, picture, description } = project;
 
 	return (
-		<div className="rounded-2xl lg:h-[620px]  shadow-[0_10px_20px_rgba(206,95,248,_0.7)]  p-1  lg:w-[600px] my-10">
+		<motion.div
+			initial={{ opacity: 0, scale: 0.5 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={{
+				default: {
+					duration: 0.3,
+					ease: [0, 0.71, 0.2, 1.01],
+				},
+				scale: {
+					type: 'spring',
+					damping: 5,
+					stiffness: 100,
+					restDelta: 0.001,
+				},
+			}}
+			className="rounded-2xl lg:h-[620px]  shadow-[0_10px_20px_rgba(206,95,248,_0.7)]  p-1  lg:w-[600px] my-10">
 			<div className="block mx-auto rounded-xl  p-6  sm:p-8 cursor-pointer ">
 				<img alt="Art" src={picture} className="  rounded-lg" />
 				<div className="mt-5">
@@ -24,7 +40,7 @@ const ProjectCard = ({ project }) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

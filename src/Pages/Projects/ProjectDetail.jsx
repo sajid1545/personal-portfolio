@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper';
+import { motion } from 'framer-motion';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -35,7 +36,22 @@ const ProjectDetail = () => {
 		<div>
 			<h1 className="text-5xl text-center my-5 font-extrabold ">{title}</h1>
 
-			<div className="my-10 lg:w-[80%] mx-auto">
+			<motion.div
+				initial={{ opacity: 0, scale: 0.5 }}
+				animate={{ opacity: 1, scale: 1 }}
+				transition={{
+					default: {
+						duration: 0.3,
+						ease: [0, 0.71, 0.2, 1.01],
+					},
+					scale: {
+						type: 'spring',
+						damping: 5,
+						stiffness: 100,
+						restDelta: 0.001,
+					},
+				}}
+				className="my-10 lg:w-[80%] mx-auto">
 				<Swiper
 					spaceBetween={30}
 					centeredSlides={true}
@@ -62,7 +78,7 @@ const ProjectDetail = () => {
 						<img src={image4} alt="" />
 					</SwiperSlide>
 				</Swiper>
-			</div>
+			</motion.div>
 
 			<div>
 				<article className="rounded-xl border border-gray-700 bg-gray-800 p-5 lg:p-14 lg:w-[80%] mx-auto my-20">
