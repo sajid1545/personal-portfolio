@@ -40,7 +40,7 @@ const Banner = () => {
 						type="button"
 						onClick={handleDownload}
 						className="glow-on-hover bg-[#191328] mt-10 px-4 py-4 font-extrabold text-xl flex">
-						<BsDownload className="h-6 w-6" />
+						<BsDownload className="h-7 w-7" />
 					</button>
 				</a>
 			</div>
