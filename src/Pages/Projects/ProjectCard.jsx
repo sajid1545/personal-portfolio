@@ -1,43 +1,72 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import React from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const ProjectCard = ({ project }) => {
 	const { _id, title, picture, description } = project;
 
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.5 }}
-			animate={{ opacity: 1, scale: 1 }}
+			initial={{ opacity: 0, scale: 0.8 }}
+			whileInView={{ opacity: 1, scale: 1 }}
+			viewport={{ once: true }}
 			transition={{
-				default: {
-					duration: 0.3,
-					ease: [0, 0.71, 0.2, 1.01],
-				},
-				scale: {
-					type: 'spring',
-					damping: 5,
-					stiffness: 100,
-					restDelta: 0.001,
-				},
+				duration: 0.5,
+				ease: "easeInOut",
 			}}
-			className="rounded-2xl lg:h-[620px]  shadow-[0_10px_20px_rgba(206,95,248,_0.7)]  p-1  lg:w-[600px] my-10">
-			<div className="block mx-auto rounded-xl  p-6  sm:p-8 cursor-pointer ">
-				<img alt="Art" src={picture} className="  rounded-lg" />
-				<div className="mt-5">
-					<h3 className="text-3xl font-extrabold text-center my-3">{title}</h3>
+			className="rounded-2xl shadow-lg p-1 lg:w-[600px] w-full my-10"
+		>
+			<div className="block mx-auto rounded-xl p-6 sm:p-8 cursor-pointer border border-[#CE5FF8] transition-all duration-300 ease-in-out hover:shadow-[0_10px_20px_rgba(206,95,248,_0.5)]">
+				<img
+					alt="Art"
+					src={picture}
+					className="rounded-lg w-full object-cover h-64 lg:h-72 transition-transform duration-300 ease-in-out hover:translate-y-[-5px]"
+				/>
+				<div className="mt-5 text-center">
+					<motion.h3
+						initial={{ y: 50, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						transition={{
+							delay: 0.2,
+							duration: 0.6,
+							type: "spring",
+							stiffness: 120,
+						}}
+						className="text-2xl lg:text-3xl font-extrabold my-3"
+					>
+						{title}
+					</motion.h3>
 
-					<p className="mt-2 text-md text-center ">{description}</p>
+					<motion.p
+						initial={{ y: 50, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						transition={{
+							delay: 0.4,
+							duration: 0.6,
+							type: "spring",
+							stiffness: 120,
+						}}
+						className="mt-2 text-md text-gray-700"
+					>
+						{description}
+					</motion.p>
 
-					<div>
-						<Link to={`/project/${_id}`}>
-							<button className="items-center px-20 py-3  mx-auto my-5 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#551a8b] rounded-lg hover:bg-[#9400d3] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 flex gap-2">
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.6, duration: 0.5 }}
+					>
+						<Link state={{ project: project }} to={`/project/${_id}`}>
+							<button
+								type="button"
+								className="flex items-center justify-center px-8 py-3 mx-auto my-5 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#551a8b] rounded-lg hover:bg-[#9400d3] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+							>
 								More Details
-								<AiOutlineArrowRight className="w-5 h-6 " />
+								<AiOutlineArrowRight className="w-5 h-6 ml-2" />
 							</button>
 						</Link>
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</motion.div>

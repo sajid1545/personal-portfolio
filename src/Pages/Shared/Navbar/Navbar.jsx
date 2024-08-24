@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import './navbar.css';
-import { FaTimes, FaBars, FaCode, FaHome, FaPhone } from 'react-icons/fa';
-import { AiOutlineFundProjectionScreen, AiFillFile } from 'react-icons/ai';
-import { FaPen } from 'react-icons/fa';
-import logo from '../../../assets/logo-png/logo-no-background.png';
-import { HashLink, NavHashLink } from 'react-router-hash-link';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "./navbar.css";
+import { FaTimes, FaBars, FaCode, FaHome, FaPhone } from "react-icons/fa";
+import { AiOutlineFundProjectionScreen, AiFillFile } from "react-icons/ai";
+import { FaPen } from "react-icons/fa";
+import logo from "../../../assets/logo-png/logo-no-background.png";
+import { HashLink, NavHashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	const [click, setClick] = useState(false);
@@ -20,13 +20,14 @@ const Navbar = () => {
 					<img src={logo} alt="" className="w-[20%]" />
 				</NavLink>
 
-				<ul className={click ? 'nav-menu active' : 'nav-menu'}>
+				<ul className={click ? "nav-menu active" : "nav-menu"}>
 					<li className="nav-item">
 						<NavLink
 							to="/"
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
-							onClick={handleClick}>
+							onClick={handleClick}
+						>
 							<FaHome />
 							Home
 						</NavLink>
@@ -36,12 +37,13 @@ const Navbar = () => {
 							to="/projects"
 							activeclassname="active"
 							className="nav-links flex items-center gap-2"
-							onClick={handleClick}>
+							onClick={handleClick}
+						>
 							<AiOutlineFundProjectionScreen />
 							Projects
 						</NavLink>
 					</li>
-					<li className="nav-item">
+					{/* <li className="nav-item">
 						<NavLink
 							to="/blogs"
 							activeclassname="active"
@@ -50,7 +52,7 @@ const Navbar = () => {
 							<FaPen />
 							Blogs
 						</NavLink>
-					</li>
+					</li> */}
 					<li className="nav-item">
 						{/* <NavLink
 							to="/blogs"
@@ -65,7 +67,7 @@ const Navbar = () => {
 							smooth
 							to="/#contact"
 							activeClassName="selected"
-							activeStyle={{ color: 'red' }}
+							activeStyle={{ color: "red" }}
 							className="nav-links flex items-center gap-2"
 							onClick={handleClick}
 							// etc...
