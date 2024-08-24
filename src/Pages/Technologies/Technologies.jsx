@@ -5,7 +5,7 @@ import TechnologyCard from "./TechnologyCard";
 import css from "../../assets/icons/css3.png";
 import express from "../../assets/icons/express.png";
 import html from "../../assets/icons/html.png";
-import javaScript from "../../assets/icons/javaScript.png";
+import javaScript from "../../assets/icons/javascript.png";
 import mongoDB from "../../assets/icons/mongodb.png";
 import react from "../../assets/icons/react.png";
 import tailwind from "../../assets/icons/tailwind.png";
