@@ -1,15 +1,42 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import myPic from "../../assets/sajid-bg.png";
 
 const About = () => {
-	// Animation Variants
+	const [scale, setScale] = useState(0.8); // Start with a smaller scale
+	const imageRef = useRef();
+
+	const handleScroll = () => {
+		if (imageRef.current) {
+			const rect = imageRef.current.getBoundingClientRect();
+			const windowHeight = window.innerHeight;
+			const scrollPosition = window.scrollY;
+
+			// Calculate how much the image is in view
+			const imageTop = rect.top + scrollPosition;
+			const imageHeight = rect.height;
+			const percentageInView = Math.min(
+				1,
+				Math.max(0, (windowHeight - rect.top) / (windowHeight + imageHeight)),
+			);
+
+			// Scale from 0.8 to 1 based on how much the image is in view
+			setScale(0.8 + percentageInView * 0.2);
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	const containerVariant = {
 		hidden: { opacity: 0 },
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.3,
+				staggerChildren: 0.2,
+				delayChildren: 0.3,
 			},
 		},
 	};
@@ -23,32 +50,22 @@ const About = () => {
 		},
 	};
 
-	const imageVariant = {
-		hidden: { opacity: 0, scale: 0.8, rotate: -10 },
-		visible: {
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			transition: { duration: 1, ease: "easeOut" },
-		},
-	};
-
 	const buttonVariant = {
 		hidden: { opacity: 0, y: 20 },
 		visible: {
 			opacity: 1,
 			y: 0,
-			transition: { duration: 0.8, ease: "easeOut", delay: 0.5 },
+			transition: { duration: 0.8, ease: "easeOut", delay: 0.8 },
 		},
 	};
 
 	return (
 		<section
 			id="about"
-			className="my-10 h-screen flex flex-col justify-center items-center "
+			className="py-16 lg:py-24 bg-gradient-to-b from-gray-800 to-gray-900 flex flex-col justify-center items-center h-screen"
 		>
 			<motion.h1
-				className="text-center my-10 font-extrabold text-5xl lg:text-6xl text-white underline underline-offset-8 decoration-[rgb(206,95,248)]"
+				className="text-center font-extrabold text-5xl lg:text-7xl text-white mb-12 lg:mb-16"
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
 			>
@@ -56,16 +73,16 @@ const About = () => {
 			</motion.h1>
 
 			<motion.div
-				className="flex justify-center flex-col-reverse lg:flex-row items-center w-[95%] gap-10 mx-auto"
+				className="flex flex-col lg:flex-row justify-center items-center w-[90%] max-w-5xl mx-auto gap-12 lg:gap-20"
 				variants={containerVariant}
 				initial="hidden"
 				animate="visible"
 			>
 				<motion.div
-					className="my-info w-full lg:w-[65%] text-center lg:text-left"
+					className="w-full lg:w-[55%] text-center lg:text-left"
 					variants={textVariant}
 				>
-					<p className="text-3xl lg:text-4xl mb-10 leading-relaxed text-gray-700">
+					<p className="text-xl lg:text-2xl leading-relaxed text-gray-300">
 						Hello, I'm{" "}
 						<span className="font-extrabold text-[#CE5FF8]">
 							Sajjad Abdullah
@@ -80,30 +97,31 @@ const About = () => {
 						<span className="font-semibold text-purple-600">
 							JavaScript, React.js, and Express.js
 						</span>
-						, among other exciting tools. I thrive on innovation, continuously
-						exploring new libraries and frameworks to enhance user experiences.
+						. I thrive on innovation, continuously exploring new libraries and
+						frameworks to enhance user experiences.
 					</p>
 					<motion.a
 						href="https://www.linkedin.com/in/sajjad-abdullah-854661323/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="mt-6 px-6 py-3 inline-block text-lg font-bold text-white bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
+						className="mt-8 inline-block text-lg font-bold text-white bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 px-8 py-4 transition-colors duration-300"
 						variants={buttonVariant}
 					>
 						Let's Connect on LinkedIn
 					</motion.a>
 				</motion.div>
 
-				<motion.div
-					className="my-pic w-[50%] lg:w-[30%] mb-10 lg:mb-0"
-					variants={imageVariant}
+				<div
+					ref={imageRef}
+					className="w-[70%] lg:w-[35%] transform transition-transform duration-500"
+					style={{ transform: `scale(${scale})` }}
 				>
 					<img
 						src={myPic}
 						alt="Sajjad Abdullah"
-						className="rounded-full shadow-lg border-4 border-gray-300"
+						className="rounded-full shadow-2xl border-4 border-gray-700"
 					/>
-				</motion.div>
+				</div>
 			</motion.div>
 		</section>
 	);
