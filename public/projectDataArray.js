@@ -1,3 +1,5 @@
+import assets from "../src/assets";
+
 export const projects = [
 	{
 		_id: "1",
@@ -8,14 +10,13 @@ export const projects = [
 		client: "https://github.com/sajid1545/laptop-city-cllient",
 		server: "https://github.com/sajid1545/laptop-city-server",
 		liveSite: "https://whimsical-pavlova-5e8a87.netlify.app/",
-		image1:
-			"https://i.ibb.co/fvFHLKP/Web-capture-11-12-2022-11039-laptop-city-3d932-web-app.jpg",
-		image2:
-			"https://i.ibb.co/fHzJZzY/Web-capture-11-12-2022-1121-laptop-city-3d932-web-app.jpg",
-		image3:
-			"https://i.ibb.co/QvtHZLt/Web-capture-11-12-2022-11140-laptop-city-3d932-web-app.jpg",
-		image4:
-			"https://i.ibb.co/F87PCMF/Web-capture-11-12-2022-11118-laptop-city-3d932-web-app.jpg",
+		image1: assets.projects.laptopCity.laptopCity1,
+		image2: assets.projects.laptopCity.laptopCity2,
+		image3: assets.projects.laptopCity.laptopCity3,
+		image4: assets.projects.laptopCity.laptopCity4,
+		image5: assets.projects.laptopCity.laptopCity5,
+		image6: assets.projects.laptopCity.laptopCity6,
+		image7: assets.projects.laptopCity.laptopCity7,
 		detail1:
 			"Laptop City facilitates the global resale of refurbished laptops.",
 		detail2:

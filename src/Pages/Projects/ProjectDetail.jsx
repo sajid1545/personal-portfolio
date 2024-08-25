@@ -74,20 +74,24 @@ const ProjectDetail = () => {
 				{title}
 			</motion.h1>
 
-			<div className="my-10 w-full lg:w-[80%] mx-auto relative overflow-hidden h-[300px] md:h-[400px] lg:h-[600px]">
+			<div className="my-10 w-full lg:w-[80%] mx-auto relative overflow-hidden h-[300px] md:h-[400px] lg:h-[650px]">
 				<AnimatePresence initial={false} custom={currentImageIndex}>
-					<motion.img
+					<div
 						key={currentImageIndex}
-						src={images[currentImageIndex]}
-						alt=""
-						custom={currentImageIndex}
-						variants={imageVariants}
-						initial="initial"
-						animate="animate"
-						exit="exit"
-						transition={{ duration: 0.5, ease: "easeInOut" }}
-						className="absolute inset-0 w-full h-full object-cover rounded-lg"
-					/>
+						className="absolute inset-0 w-full h-full flex items-center justify-center"
+					>
+						<motion.img
+							src={images[currentImageIndex]}
+							alt=""
+							custom={currentImageIndex}
+							variants={imageVariants}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+							transition={{ duration: 0.5, ease: "easeInOut" }}
+							className="w-full h-full rounded-lg border-8 border-purple-500"
+						/>
+					</div>
 				</AnimatePresence>
 				<div
 					className="absolute inset-y-0 left-0 flex items-center justify-center px-4 cursor-pointer z-10"
