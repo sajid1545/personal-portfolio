@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { BiLinkExternal } from "react-icons/bi";
 import { useLocation } from "react-router-dom";
@@ -26,6 +26,15 @@ const ProjectDetail = () => {
 
 	const images = [picture, image2, image3, image4];
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+	// Autoplay effect
+	useEffect(() => {
+		const interval = setInterval(() => {
+			nextImage();
+		}, 3000); // Change the image every 3 seconds
+
+		return () => clearInterval(interval); // Clear interval on component unmount
+	}, [currentImageIndex]); // Add currentImageIndex as a dependency
 
 	const nextImage = () => {
 		setCurrentImageIndex((prevIndex) =>

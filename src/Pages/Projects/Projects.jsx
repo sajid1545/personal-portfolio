@@ -31,7 +31,7 @@ const Projects = () => {
 
 	return (
 		<div>
-			<div className="text-center font-extrabold space-y-5 my-20">
+			<div className="text-center font-extrabold space-y-5 mt-40 mb-10">
 				<h1 className="text-5xl underline underline-offset-8 decoration-[#CE5FF8]">
 					My recent Projects
 				</h1>

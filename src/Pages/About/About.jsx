@@ -1,35 +1,8 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import myPic from "../../assets/sajid-bg.png";
 
 const About = () => {
-	const [scale, setScale] = useState(0.8); // Start with a smaller scale
-	const imageRef = useRef();
-
-	const handleScroll = () => {
-		if (imageRef.current) {
-			const rect = imageRef.current.getBoundingClientRect();
-			const windowHeight = window.innerHeight;
-			const scrollPosition = window.scrollY;
-
-			// Calculate how much the image is in view
-			const imageTop = rect.top + scrollPosition;
-			const imageHeight = rect.height;
-			const percentageInView = Math.min(
-				1,
-				Math.max(0, (windowHeight - rect.top) / (windowHeight + imageHeight)),
-			);
-
-			// Scale from 0.8 to 1 based on how much the image is in view
-			setScale(0.8 + percentageInView * 0.2);
-		}
-	};
-
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
 	const containerVariant = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -62,7 +35,7 @@ const About = () => {
 	return (
 		<section
 			id="about"
-			className="py-16 lg:py-24 bg-gradient-to-b from-gray-800 to-gray-900 flex flex-col justify-center items-center h-screen"
+			className="py-16 lg:py-24 bg-gradient-to-b from-gray-800 to-gray-900 flex flex-col justify-center items-center h-auto"
 		>
 			<motion.h1
 				className="text-center font-extrabold text-5xl lg:text-7xl text-white mb-12 lg:mb-16"
@@ -111,15 +84,11 @@ const About = () => {
 					</motion.a>
 				</motion.div>
 
-				<div
-					ref={imageRef}
-					className="w-[70%] lg:w-[35%] transform transition-transform duration-500"
-					style={{ transform: `scale(${scale})` }}
-				>
+				<div className="w-[70%] lg:w-[35%]">
 					<img
 						src={myPic}
 						alt="Sajjad Abdullah"
-						className="rounded-full shadow-2xl border-4 border-gray-700"
+						className="rounded-full shadow-2xl border-4 border-gray-700 w-full h-auto"
 					/>
 				</div>
 			</motion.div>
