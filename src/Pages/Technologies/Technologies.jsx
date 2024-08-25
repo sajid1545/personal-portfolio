@@ -50,7 +50,7 @@ const Technologies = () => {
 	];
 
 	return (
-		<div className="my-20">
+		<div className="my-20 px-4">
 			<motion.h1
 				className="text-center my-10 font-extrabold text-5xl underline underline-offset-8 decoration-[rgb(206,95,248)]"
 				initial={{ opacity: 0, y: -30 }}
@@ -62,11 +62,11 @@ const Technologies = () => {
 
 			<div className="overflow-hidden">
 				<motion.div
-					className="flex justify-center items-center gap-12 flex-wrap"
-					initial={{ x: "0%" }} // Start from the middle of the screen
-					animate={{ x: ["0%", "-100%"] }} // Move leftwards across the screen
+					className="flex justify-start items-center gap-12 flex-nowrap"
+					initial={{ x: "100%" }} // Start from the right side of the screen
+					animate={{ x: ["100%", "-100%"] }} // Move leftwards across the screen
 					transition={{
-						duration: 30, // Duration for the entire movement
+						duration: 20, // Duration for the entire movement
 						repeat: Number.POSITIVE_INFINITY,
 						ease: "linear",
 					}}
@@ -82,9 +82,9 @@ const Technologies = () => {
 								stiffness: 100,
 								delay: 0.1 * tech.id,
 							}}
-							className="p-4 rounded-lg shadow-lg hover:shadow-xl "
+							className="p-4 rounded-lg shadow-lg hover:shadow-xl flex-shrink-0"
 						>
-							<TechnologyCard tech={tech} />
+							<TechnologyCard tech={tech} height="100px" width="100px" />
 						</motion.div>
 					))}
 				</motion.div>
