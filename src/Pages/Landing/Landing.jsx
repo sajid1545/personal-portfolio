@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Briefcase, Github, Globe } from "lucide-react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import CtaBanner from "../../components/CtaBanner";
 import Skills from "../../components/Skills";
@@ -105,21 +106,45 @@ const PROJECTS = [
 
 // entry animation helper
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, delay } },
+  initial: { opacity: 0, y: 16, filter: "blur(2px)" },
+  whileInView: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, delay },
+  },
+  viewport: { once: true, amount: 0.55 },
 });
 
 export default function Landing() {
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       <GradientBackdrop />
 
       {/* HERO with portrait */}
       <section className="relative container pt-20 md:pt-28 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, staggerChildren: 0.08 },
+            },
+          }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center"
+        >
           {/* Text */}
           <div className="md:col-span-7">
-            <motion.div {...fadeUp(0)}>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 16 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
               <p className="mb-3 inline-flex items-center gap-2 text-brand-300">
                 <Briefcase size={16} /> Full-Stack Developer • Chittagong, BD
               </p>
@@ -160,7 +185,7 @@ export default function Landing() {
           <div className="md:col-span-5">
             <Portrait />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Skills */}
@@ -173,11 +198,7 @@ export default function Landing() {
           title="Selected projects"
           kicker="A few builds that highlight how I approach product, polish, and performance."
         />
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          {PROJECTS.map((p, i) => (
-            <ProjectCard key={p.id} project={p} i={i} />
-          ))}
-        </div>
+        <ProjectMasonry projects={PROJECTS} />
       </section>
 
       {/* CTA */}
@@ -191,7 +212,16 @@ export default function Landing() {
 /* ================== LOCAL UI HELPERS ================== */
 
 function Portrait() {
-  // Gentle float for a touch of life; respects prefers-reduced-motion
+  // Soft parallax tied to card visibility
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [12, -12]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1.02, 0.98]);
+
+  // Gentle float loop as a base
   const float = {
     initial: { y: 0 },
     animate: { y: [-2, 2, -2] },
@@ -200,6 +230,7 @@ function Portrait() {
 
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
@@ -208,14 +239,14 @@ function Portrait() {
     >
       <motion.div
         {...float}
+        style={{ y, scale, willChange: "transform" }}
         className="relative max-w-sm ml-auto"
-        style={{ willChange: "transform" }}
       >
         {/* Soft blob behind */}
         <div className="absolute -inset-6 -z-10 bg-[radial-gradient(60%_60%_at_60%_40%,rgba(42,118,255,0.20),transparent_70%)]" />
 
         {/* Frame */}
-        <div className="rounded-3xl p-1 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-soft">
+        <div className="rounded-3xl p-1 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-soft backdrop-blur">
           <div className="relative overflow-hidden rounded-2xl">
             {/* subtle top light */}
             <div className="pointer-events-none absolute inset-x-0 -top-1 h-28 bg-gradient-to-b from-white/15 to-transparent" />
@@ -225,7 +256,6 @@ function Portrait() {
               loading="lazy"
               className="block w-full h-auto object-cover"
               onError={(e) => {
-                // graceful fallback if image missing
                 e.currentTarget.src =
                   "data:image/svg+xml;utf8," +
                   encodeURIComponent(
@@ -254,7 +284,38 @@ function SectionHeader({ eyebrow, title, kicker }) {
   );
 }
 
+function ProjectMasonry({ projects }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const rotate = useTransform(scrollYProgress, [0, 1], [-1.2, 1.2]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 1], [0.85, 1, 1]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ rotate, opacity }}
+      className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
+    >
+      {projects.map((p, i) => (
+        <ProjectCard key={p.id} project={p} i={i} />
+      ))}
+    </motion.div>
+  );
+}
+
 function ProjectCard({ project, i = 0 }) {
+  // Hover elevation with glassy shadow
+  const elev = useSpring(0, { stiffness: 220, damping: 26, mass: 0.3 });
+  const boxShadow = useTransform(elev, (v) => {
+    const y = 8 + v * 10;
+    const blur = 20 + v * 24;
+    const alpha = 0.14 + v * 0.18;
+    return `0 ${y}px ${blur}px rgba(42,118,255,${alpha})`;
+  });
+
   const chip = (t) => (
     <span
       key={t}
@@ -268,19 +329,24 @@ function ProjectCard({ project, i = 0 }) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      style={{ boxShadow }}
+      onHoverStart={() => elev.set(1)}
+      onHoverEnd={() => elev.set(0)}
+      initial={{ opacity: 0, y: 16, scale: 0.98, filter: "blur(2px)" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.35 }}
       transition={{ duration: 0.5, delay: i * 0.04 }}
-      className="glass rounded-2xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-500/20 transition-all duration-300"
+      className="rounded-2xl p-5 md:p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:-translate-y-1 transition-all duration-300"
     >
       <div className="aspect-video rounded-xl overflow-hidden border border-white/5 mb-4">
         {project.image ? (
-          <img
+          <motion.img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover"
             loading="lazy"
+            whileHover={{ scale: 1.04 }}
+            transition={{ type: "spring", stiffness: 180, damping: 18 }}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-brand-800/50 to-brand-900/30" />
@@ -338,8 +404,17 @@ function ProjectCard({ project, i = 0 }) {
 }
 
 function GradientBackdrop() {
+  // Scroll-linked subtle depth; fixed + clipped to avoid overflow
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0.85]);
+
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+    <motion.div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+      style={{ scale, opacity }}
+    >
       {/* spotlight */}
       <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,rgba(42,118,255,0.10),transparent_70%)]" />
       {/* fine grid */}
@@ -351,6 +426,6 @@ function GradientBackdrop() {
           backgroundSize: "40px 40px",
         }}
       />
-    </div>
+    </motion.div>
   );
 }
