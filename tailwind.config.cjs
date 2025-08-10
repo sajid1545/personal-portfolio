@@ -26,7 +26,7 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: [
-					"Inter",
+					"Raleway",
 					"ui-sans-serif",
 					"system-ui",
 					"Segoe UI",
@@ -35,7 +35,7 @@ module.exports = {
 					"Arial",
 					"sans-serif",
 				],
-				display: ["Sora", "Inter", "ui-sans-serif", "system-ui"],
+				display: ["Sora", "Raleway", "ui-sans-serif", "system-ui"],
 			},
 			boxShadow: {
 				soft: "0 10px 25px rgba(2,6,23,0.35)",

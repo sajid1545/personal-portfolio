@@ -13,8 +13,17 @@
         height: 100%;
     }
 
+    /* Use Tailwind's sans (Inter) for body text */
     body {
-        @apply bg-bg text-white antialiased;
+        @apply bg-bg text-white antialiased font-sans;
+    }
+
+    /* Optional: make all headings use Sora by default */
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-display;
     }
 }
 
@@ -28,15 +37,9 @@
     }
 }
 
-
+/* If you still want margin reset and progress bar from your old file: */
 body {
     margin: 0;
-    font-family: "Raleway", serif !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35)); */
-    background-color: #0F0B18;
-    color: white;
 }
 
 .progress-bar {
