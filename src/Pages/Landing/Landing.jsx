@@ -202,12 +202,31 @@ function ProjectMasonry({ projects }) {
 }
 
 function ProjectCard({ project, i = 0 }) {
+  const cardRef = useRef(null);
+
+  const onMove = (e) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    el.style.setProperty("--mx", `${x}%`);
+    el.style.setProperty("--my", `${y}%`);
+  };
+
+  const onLeave = () => {
+    const el = cardRef.current;
+    if (!el) return;
+    el.style.setProperty("--mx", `50%`);
+    el.style.setProperty("--my", `50%`);
+  };
+
   const chip = (t) => (
     <span
       key={t}
       className={`inline-flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-full text-white bg-gradient-to-r ${gradientFor(
         t
-      )}`}
+      )} shadow-sm`}
     >
       {t}
     </span>
@@ -215,30 +234,61 @@ function ProjectCard({ project, i = 0 }) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, delay: i * 0.04 }}
-      className="glass rounded-2xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-500/20 transition-all duration-300"
+      ref={cardRef}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      initial={{ opacity: 0, y: 14, scale: 0.99, filter: "blur(2px)" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.45, delay: i * 0.04 }}
+      className="
+        group relative rounded-2xl p-5 md:p-6
+        border border-white/10 backdrop-blur-lg
+        hover:-translate-y-1 transition-all duration-300
+        before:absolute before:inset-0 before:rounded-2xl before:pointer-events-none
+      "
+      style={{
+        background: `radial-gradient(600px 300px at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.08), transparent 40%)`,
+      }}
     >
-      <div className="aspect-video rounded-xl overflow-hidden border border-white/5 mb-4">
+      {/* Cover */}
+      <div className="relative aspect-video rounded-xl overflow-hidden border border-white/5 mb-4">
         {project.image ? (
-          <img
+          <motion.img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             loading="lazy"
+            className="w-full h-full object-cover"
+            initial={{ scale: 1.01 }}
+            whileHover={{ scale: 1.06 }}
+            transition={{ type: "spring", stiffness: 180, damping: 18 }}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-brand-800/50 to-brand-900/30" />
         )}
+
+        {/* Shine */}
+        <motion.span
+          aria-hidden
+          className="absolute -inset-1 pointer-events-none"
+          initial={{ x: "-120%" }}
+          whileHover={{ x: "130%" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            background:
+              "linear-gradient(75deg, transparent 0%, rgba(255,255,255,0.16) 40%, rgba(255,255,255,0.06) 60%, transparent 100%)",
+            mixBlendMode: "screen",
+          }}
+        />
       </div>
 
+      {/* Content */}
       <h3 className="font-display text-xl mb-2">{project.title}</h3>
       <p className="text-white/70 leading-relaxed mb-4">
         {project.description}
       </p>
 
+      {/* Tech chips */}
       <div className="flex flex-wrap gap-2 mb-5">
         {project.tech?.slice(0, 8).map(chip)}
         {project.tech?.length > 8 && (
@@ -248,6 +298,7 @@ function ProjectCard({ project, i = 0 }) {
         )}
       </div>
 
+      {/* Actions */}
       <div className="flex flex-wrap gap-2">
         {project.frontend && (
           <a
