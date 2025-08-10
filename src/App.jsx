@@ -11,6 +11,18 @@ import { BsArrowUpSquareFill } from "react-icons/bs";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import { motion, useScroll, useSpring } from "framer-motion";
+
+function ScrollProgressBar() {
+	const { scrollYProgress } = useScroll();
+	const scaleX = useSpring(scrollYProgress, {
+		stiffness: 120,
+		damping: 20,
+		mass: 0.2,
+	});
+	return <motion.div className="progress-bar" style={{ scaleX }} />;
+}
+
 function App() {
 	const [loading, setLoading] = useState(true);
 
@@ -25,6 +37,7 @@ function App() {
 
 	return (
 		<>
+			<ScrollProgressBar />
 			<ScrollToTop
 				smooth
 				aria-label="Scroll to top"

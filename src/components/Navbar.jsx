@@ -42,7 +42,7 @@ export default function Navbar() {
 				<nav className="hidden md:flex items-center gap-2 text-sm">
 					{[
 						{ to: "/projects", label: "Projects" },
-						{ to: "/skills", label: "Skills" },
+						// { to: "/skills", label: "Skills" },
 						{ to: "/experience", label: "Experience" },
 						{ to: "/contact", label: "Contact" },
 					].map((link) => (
@@ -83,7 +83,7 @@ export default function Navbar() {
 								<div className="flex flex-col gap-2 text-sm">
 									{[
 										{ to: "/projects", label: "Projects" },
-										{ to: "/skills", label: "Skills" },
+										// { to: "/skills", label: "Skills" },
 										{ to: "/experience", label: "Experience" },
 										{ to: "/contact", label: "Contact" },
 									].map((link) => (
