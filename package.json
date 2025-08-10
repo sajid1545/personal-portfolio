@@ -13,7 +13,7 @@
 		"animate.css": "^4.1.1",
 		"aos": "^2.3.4",
 		"daisyui": "^2.42.1",
-		"framer-motion": "^7.6.19",
+		"framer-motion": "^12.23.12",
 		"lucide-react": "^0.453.0",
 		"react": "^18.2.0",
 		"react-animation-on-scroll": "^5.1.0",

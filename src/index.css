@@ -42,6 +42,13 @@ body {
     margin: 0;
 }
 
+/* globals.css */
+/* html,
+body {
+    overflow-x: hidden;
+} */
+
+
 /* Top scroll progress bar */
 .progress-bar {
     position: fixed;
