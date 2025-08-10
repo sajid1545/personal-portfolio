@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Briefcase, Github, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import CtaBanner from "../../components/CtaBanner";
 import Skills from "../../components/Skills";
 
 /* ================== CONFIG ================== */
@@ -299,35 +300,6 @@ function ProjectCard({ project, i = 0 }) {
 				)}
 			</div>
 		</motion.article>
-	);
-}
-
-function CtaBanner() {
-	return (
-		<div className="glass rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
-			<div>
-				<p className="mb-2 font-medium text-brand-300">Let’s build</p>
-				<h3 className="font-display text-2xl md:text-3xl tracking-tight">
-					Have a role or project in mind?
-				</h3>
-				<p className="text-white/70 mt-2">
-					I’m open to full-time roles and select freelance work. I can ship fast, iterate with your
-					team, and keep quality high.
-				</p>
-			</div>
-			<div className="flex gap-3">
-				<Link
-					to="/contact"
-					className="px-5 py-3 rounded-full bg-brand-500 hover:bg-brand-400 transition-colors shadow-soft">
-					Contact me
-				</Link>
-				<a
-					href="mailto:sajjadabdullah9962@gmail.com"
-					className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/15 border border-white/10">
-					Email
-				</a>
-			</div>
-		</div>
 	);
 }
 
