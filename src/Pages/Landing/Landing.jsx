@@ -1,120 +1,15 @@
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Briefcase, Github, Globe } from "lucide-react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import {
+  fadeUp,
+  gradientFor,
+  IMG_URL,
+  PROJECTS,
+} from "../../../constants/commonConstants";
 import CtaBanner from "../../components/CtaBanner";
 import Skills from "../../components/Skills";
-
-/* ================== CONFIG ================== */
-// Replace with your actual file in /public
-const IMG_URL = "/sajjad.png";
-
-// Gradient per tech for pretty chips
-const gradientFor = (t) => {
-  const map = {
-    HTML5: "from-orange-500 to-red-500",
-    CSS3: "from-sky-500 to-indigo-500",
-    "Tailwind CSS": "from-sky-400 to-cyan-500",
-    JavaScript: "from-yellow-400 to-orange-500",
-    TypeScript: "from-blue-400 to-indigo-600",
-    "React.js": "from-cyan-500 to-blue-600",
-    "React Router DOM": "from-rose-500 to-pink-600",
-    "React Query": "from-red-400 to-rose-500",
-    Redux: "from-purple-500 to-pink-500",
-    "React Hook Form": "from-fuchsia-500 to-pink-600",
-    "Express.js": "from-stone-500 to-neutral-700",
-    MongoDB: "from-emerald-500 to-green-700",
-    Mongoose: "from-lime-500 to-emerald-600",
-    MUI: "from-blue-500 to-indigo-500",
-    "Next.js": "from-zinc-700 to-neutral-900",
-    "Prisma ORM": "from-emerald-400 to-teal-600",
-    "Postgres SQL": "from-sky-500 to-blue-700",
-    "Ant Design": "from-red-500 to-rose-600",
-    GraphQL: "from-pink-500 to-rose-500",
-    GitHub: "from-zinc-600 to-neutral-800",
-    "VS Code": "from-sky-500 to-blue-600",
-    Firebase: "from-amber-400 to-orange-500",
-    Netlify: "from-teal-400 to-cyan-600",
-    "Chrome DevTools": "from-amber-500 to-red-500",
-  };
-  return map[t] || "from-violet-500 to-fuchsia-600";
-};
-
-// Featured projects (covers + repos + live)
-const PROJECTS = [
-  {
-    id: "foundit",
-    title: "FoundIt (Lost & Found Management)",
-    description:
-      "End-to-end platform for reporting, searching, and claiming lost/found items with role-based dashboards, advanced search, and admin oversight.",
-    image: "https://i.ibb.co.com/zhNmntNS/Screenshot-1.png",
-    tech: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Postgres SQL",
-      "Prisma ORM",
-      "Express.js",
-      "JWT",
-      "Redux",
-      "Zod",
-      "React Hook Form",
-    ],
-    frontend: "https://github.com/sajid1545/FoundIt-client",
-    backend: "https://github.com/sajid1545/FoundIt-server",
-    live: "https://assignment-9-client.vercel.app/",
-  },
-  {
-    id: "laptop-city",
-    title: "Laptop City",
-    description:
-      "Reseller platform with buyer/seller roles, JWT-secured dashboards, Stripe payments, and admin tools.",
-    image: "https://i.ibb.co/5R4PYgk/Laptop-city.jpg",
-    tech: [
-      "React.js",
-      "Tailwind CSS",
-      "Express.js",
-      "MongoDB",
-      "Firebase",
-      "Stripe",
-      "JWT",
-    ],
-    frontend: "https://github.com/sajid1545/laptop-city-cllient",
-    backend: "https://github.com/sajid1545/laptop-city-server",
-    live: "https://whimsical-pavlova-5e8a87.netlify.app/",
-  },
-  {
-    id: "nikah-photo",
-    title: "Nikah Photography",
-    description:
-      "Personal service app for event bookings and reviews with secure login and CRUD flows.",
-    image: "https://i.ibb.co/DkC0Q04/Nikah-photography.jpg",
-    tech: [
-      "React.js",
-      "Tailwind CSS",
-      "Express.js",
-      "MongoDB",
-      "Firebase",
-      "JWT",
-    ],
-    frontend: "https://github.com/sajid1545/Nikah-photography_client",
-    backend: "https://github.com/sajid1545/Nikah-photography_server",
-    live: "https://assignment-11-cf2b9.web.app/",
-  },
-];
-
-// entry animation helper
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 16, filter: "blur(2px)" },
-  whileInView: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.6, delay },
-  },
-  viewport: { once: true, amount: 0.55 },
-});
 
 export default function Landing() {
   return (
@@ -307,15 +202,6 @@ function ProjectMasonry({ projects }) {
 }
 
 function ProjectCard({ project, i = 0 }) {
-  // Hover elevation with glassy shadow
-  const elev = useSpring(0, { stiffness: 220, damping: 26, mass: 0.3 });
-  const boxShadow = useTransform(elev, (v) => {
-    const y = 8 + v * 10;
-    const blur = 20 + v * 24;
-    const alpha = 0.14 + v * 0.18;
-    return `0 ${y}px ${blur}px rgba(42,118,255,${alpha})`;
-  });
-
   const chip = (t) => (
     <span
       key={t}
@@ -329,24 +215,19 @@ function ProjectCard({ project, i = 0 }) {
 
   return (
     <motion.article
-      style={{ boxShadow }}
-      onHoverStart={() => elev.set(1)}
-      onHoverEnd={() => elev.set(0)}
-      initial={{ opacity: 0, y: 16, scale: 0.98, filter: "blur(2px)" }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, amount: 0.35 }}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, delay: i * 0.04 }}
-      className="rounded-2xl p-5 md:p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:-translate-y-1 transition-all duration-300"
+      className="glass rounded-2xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-500/20 transition-all duration-300"
     >
       <div className="aspect-video rounded-xl overflow-hidden border border-white/5 mb-4">
         {project.image ? (
-          <motion.img
+          <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             loading="lazy"
-            whileHover={{ scale: 1.04 }}
-            transition={{ type: "spring", stiffness: 180, damping: 18 }}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-brand-800/50 to-brand-900/30" />
