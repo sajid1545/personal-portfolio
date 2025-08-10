@@ -1,8 +1,7 @@
-import React from 'react';
-import { Outlet, ScrollRestoration } from 'react-router-dom';
-import Navbar from '../Pages/Shared/Navbar/Navbar';
-import { motion, useScroll, useSpring } from 'framer-motion';
-import './main.css';
+import { motion, useScroll, useSpring } from "framer-motion";
+import { Outlet, ScrollRestoration } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import "./main.css";
 
 const Main = () => {
 	const { scrollYProgress } = useScroll();

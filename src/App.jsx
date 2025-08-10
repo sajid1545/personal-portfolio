@@ -1,48 +1,41 @@
-import { useEffect, useState } from 'react';
-import { RouterProvider } from 'react-router-dom';
-import ScrollToTop from 'react-scroll-to-top';
-import './App.css';
-import Particle from './Pages/Shared/Particle/Particle';
-import MainSpinner from './Pages/Shared/Spinners/MainSpinner';
-import { router } from './Routes/routes';
+import { useEffect, useState } from "react";
+import { RouterProvider } from "react-router-dom";
+import ScrollToTop from "react-scroll-to-top";
+import "./App.css";
 
-import { BsArrowUpSquareFill } from 'react-icons/bs';
+import { router } from "./Routes/routes";
 
-//import
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { BsArrowUpSquareFill } from "react-icons/bs";
+
+// AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
-	//useEffect
-	useEffect(() => {
-		AOS.init();
-		AOS.refresh();
-	}, []);
+	const [loading, setLoading] = useState(true);
 
-	const [loading, setLoading] = useState(false);
 	useEffect(() => {
-		setLoading(true);
-		setTimeout(() => {
-			setLoading(false);
-		}, 1500);
+		// Init AOS once
+		AOS.init({ once: true, duration: 600, easing: "ease-out" });
+
+		// Lightweight splash
+		const t = setTimeout(() => setLoading(false), 1200);
+		return () => clearTimeout(t);
 	}, []);
 
 	return (
 		<>
-			<div className="">
-				<Particle />
-				{loading ? (
-					<MainSpinner />
-				) : (
-					<>
-						<ScrollToTop
-							smooth
-							component={<BsArrowUpSquareFill className="text-black mx-auto text-3xl" />}
-						/>
-						<RouterProvider router={router} />
-					</>
-				)}
-			</div>
+			<ScrollToTop
+				smooth
+				aria-label="Scroll to top"
+				component={<BsArrowUpSquareFill className="mx-auto text-3xl" />}
+				style={{
+					background: "transparent",
+					boxShadow: "none",
+				}}
+				className="!bg-transparent !shadow-none !border-0 text-white"
+			/>
+			<RouterProvider router={router} />
 		</>
 	);
 }

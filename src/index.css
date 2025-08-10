@@ -1,16 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        color-scheme: dark;
+    }
 
-:root {
-    --purple: #DA9EF6;
+    html,
+    body,
+    #root {
+        height: 100%;
+    }
+
+    body {
+        @apply bg-bg text-white antialiased;
+    }
 }
 
-/* html {
-    scroll-behavior: smooth;
-} */
+@layer utilities {
+    .glass {
+        @apply bg-bg/60 backdrop-blur-xl shadow-soft shadow-black/30 border border-white/5;
+    }
+
+    .chip {
+        @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm leading-6 bg-white/5 border border-white/10;
+    }
+}
+
 
 body {
     margin: 0;
