@@ -42,7 +42,7 @@ body {
     margin: 0;
 }
 
-.progress-bar {
+/* .progress-bar {
     position: sticky;
     top: 0;
     left: 0;
@@ -50,4 +50,4 @@ body {
     height: 10px;
     background: linear-gradient(to right, rgb(233, 213, 255), rgb(192, 132, 252), rgb(107, 33, 168));
     transform-origin: 0%;
-}
+} */

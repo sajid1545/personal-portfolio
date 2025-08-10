@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Camera, Laptop, SearchCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import Contact from "../../components/Contact";
 import Projects from "../../components/Projects";
 import Skills from "../../components/Skills";
 
@@ -74,7 +73,6 @@ export default function Landing() {
 
 			{/* SKILLS STRIP */}
 			<section className="container py-6">
-				<SectionHeader eyebrow="Toolkit" title="Skills I use daily" />
 				<Skills />
 			</section>
 
@@ -92,8 +90,6 @@ export default function Landing() {
 			<section className="container py-16">
 				<CtaBanner />
 			</section>
-
-			<Contact />
 		</div>
 	);
 }
