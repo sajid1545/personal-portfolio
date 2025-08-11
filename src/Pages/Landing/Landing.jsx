@@ -3,6 +3,8 @@ import { Github, Globe } from "lucide-react";
 import { useRef } from "react";
 import { gradientFor, PROJECTS } from "../../../constants/commonConstants";
 import CtaBanner from "../../components/CtaBanner";
+import Education from "../../components/Education";
+import Experience from "../../components/Experience";
 import HeroBanner from "../../components/HeroBanner";
 import Skills from "../../components/Skills";
 
@@ -16,6 +18,16 @@ export default function Landing() {
 
       {/* Skills */}
       <Skills />
+
+      {/* Education */}
+      <section className="container py-8 md:py-16">
+        <Education />
+      </section>
+
+      {/* Experience */}
+      <section className="container py-8 md:py-16">
+        <Experience />
+      </section>
 
       {/* PROJECTS */}
       <section className="container py-8">
