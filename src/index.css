@@ -3,70 +3,73 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        color-scheme: dark;
-    }
+  :root {
+    color-scheme: dark;
+  }
 
-    html,
-    body,
-    #root {
-        height: 100%;
-    }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
 
-    /* Use Tailwind's sans (Inter) for body text */
-    body {
-        @apply bg-bg text-white antialiased font-sans;
-    }
+  /* Use Tailwind's sans (Inter) for body text */
+  body {
+    @apply bg-bg text-white antialiased font-sans;
+  }
 
-    /* Optional: make all headings use Sora by default */
-    h1,
-    h2,
-    h3,
-    h4 {
-        @apply font-display;
-    }
+  /* Optional: make all headings use Sora by default */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
 }
 
 @layer utilities {
-    .glass {
-        @apply bg-bg/60 backdrop-blur-xl shadow-soft shadow-black/30 border border-white/5;
-    }
+  .glass {
+    @apply bg-bg/60 backdrop-blur-xl shadow-soft shadow-black/30 border border-white/5;
+  }
 
-    .chip {
-        @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm leading-6 bg-white/5 border border-white/10;
-    }
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm leading-6 bg-white/5 border border-white/10;
+  }
 }
 
 /* If you still want margin reset and progress bar from your old file: */
 body {
-    margin: 0;
+  margin: 0;
 }
 
-/* globals.css */
-/* html,
-body {
-    overflow-x: hidden;
-} */
-
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
 
 /* Top scroll progress bar */
 .progress-bar {
-    position: fixed;
-    /* stays at top */
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    /* slimmer looks nicer */
-    transform-origin: 0% 50%;
-    /* scale from left */
-    z-index: 60;
-    /* above navbar */
-    background: linear-gradient(to right,
-            rgb(59 130 246),
-            /* brand-ish blue */
-            rgb(99 102 241),
-            rgb(168 85 247));
-    box-shadow: 0 0 24px rgba(99, 102, 241, .35);
-    border-radius: 0 0 6px 6px;
+  position: fixed;
+  /* stays at top */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  /* slimmer looks nicer */
+  transform-origin: 0% 50%;
+  /* scale from left */
+  z-index: 60;
+  /* above navbar */
+  background: linear-gradient(
+    to right,
+    rgb(59 130 246),
+    /* brand-ish blue */ rgb(99 102 241),
+    rgb(168 85 247)
+  );
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.35);
+  border-radius: 0 0 6px 6px;
 }

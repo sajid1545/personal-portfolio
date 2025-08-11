@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import {
   fadeUp,
   gradientFor,
-  IMG_URL,
   PROJECTS,
 } from "../../../constants/commonConstants";
 import CtaBanner from "../../components/CtaBanner";
 import Skills from "../../components/Skills";
+import Portrait from "../../components/Potrait";
 
 export default function Landing() {
   return (
@@ -17,7 +17,13 @@ export default function Landing() {
       <GradientBackdrop />
 
       {/* HERO with portrait */}
-      <section className="relative container pt-20 md:pt-28 pb-10">
+      <section className="relative container pt-20 md:pt-28 pb-12">
+        {/* soft top spotlight */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 -top-10 h-40 blur-2xl opacity-30 bg-gradient-to-r from-brand-500/40 via-fuchsia-500/30 to-cyan-400/40"
+        />
+
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -34,49 +40,84 @@ export default function Landing() {
         >
           {/* Text */}
           <div className="md:col-span-7">
+            {/* tiny status pill */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 12 },
+                show: { opacity: 1, y: 0 },
+              }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/80"
+            >
+              <span className="relative inline-flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400/60 opacity-60" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+              </span>
+              Open to collaboration & side projects
+            </motion.div>
+
+            {/* headline + animated accent bar */}
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 16 },
                 show: { opacity: 1, y: 0 },
               }}
+              className="mt-3"
             >
               <p className="mb-3 inline-flex items-center gap-2 text-brand-300">
-                <Briefcase size={16} /> Full-Stack Developer • Chittagong, BD
+                <Briefcase size={16} /> Full‑Stack Developer • Chittagong, BD
               </p>
-              <h1 className="font-display text-4xl md:text-6xl tracking-tight">
+
+              <h1 className="font-display text-4xl md:text-6xl tracking-tight relative">
                 Building <span className="text-brand-300">scalable</span>,{" "}
-                <span className="text-brand-300">user-focused</span> web apps.
+                <span className="text-brand-300">user‑focused</span> web apps.
+                {/* animated underline bar */}
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  className="absolute -bottom-2 left-0 h-[3px] w-40 origin-left rounded-full bg-gradient-to-r from-brand-400 via-fuchsia-400 to-cyan-400"
+                />
               </h1>
             </motion.div>
 
+            {/* subcopy */}
             <motion.p
               {...fadeUp(0.08)}
               className="mt-5 text-white/75 max-w-2xl"
             >
-              At <b>Zentexx</b> and previously at <b>Ekopii</b>, I’ve shipped
-              responsive interfaces, engineered secure APIs, and delivered
-              features end-to-end. React & Tailwind on the front, Node/Express
-              with MongoDB or Postgres/Prisma on the back — pragmatic, fast, and
+              At <b className="text-white">Zentexx</b> and previously at{" "}
+              <b className="text-white">Ekopii</b>, I’ve shipped responsive
+              interfaces, engineered secure APIs, and delivered features
+              end‑to‑end. React & Tailwind on the front, Node/Express with
+              MongoDB or Postgres/Prisma on the back — pragmatic, fast, and
               clean.
             </motion.p>
 
+            {/* CTAs: magnetic hover + shimmer on résumé */}
             <motion.div {...fadeUp(0.16)} className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/projects"
-                className="px-5 py-3 rounded-full bg-brand-500 hover:bg-brand-400 transition-colors shadow-soft inline-flex items-center gap-2"
-              >
-                View projects <ArrowRight size={18} />
-              </Link>
-              <a
+              <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="/projects"
+                  className="px-5 py-3 rounded-full bg-brand-500 hover:bg-brand-400 transition-colors shadow-soft inline-flex items-center gap-2"
+                >
+                  View projects <ArrowRight size={18} />
+                </Link>
+              </motion.div>
+
+              <motion.a
                 href="/resume.pdf"
-                className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/15 border border-white/10"
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.98 }}
+                className="relative overflow-hidden px-5 py-3 rounded-full bg-white/10 hover:bg-white/15 border border-white/10"
               >
+                {/* subtle shimmer */}
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent [mask-image:linear-gradient(90deg,transparent,black,transparent)] hover:animate-[shimmer_1.2s_ease-in-out] pointer-events-none" />
                 Download résumé
-              </a>
+              </motion.a>
             </motion.div>
           </div>
 
-          {/* Portrait (hidden on small screens to keep it minimal) */}
+          {/* Portrait */}
           <div className="md:col-span-5">
             <Portrait />
           </div>
@@ -105,65 +146,6 @@ export default function Landing() {
 }
 
 /* ================== LOCAL UI HELPERS ================== */
-
-function Portrait() {
-  // Soft parallax tied to card visibility
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [12, -12]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1.02, 0.98]);
-
-  // Gentle float loop as a base
-  const float = {
-    initial: { y: 0 },
-    animate: { y: [-2, 2, -2] },
-    transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.6 }}
-      className="hidden md:block"
-    >
-      <motion.div
-        {...float}
-        style={{ y, scale, willChange: "transform" }}
-        className="relative max-w-sm ml-auto"
-      >
-        {/* Soft blob behind */}
-        <div className="absolute -inset-6 -z-10 bg-[radial-gradient(60%_60%_at_60%_40%,rgba(42,118,255,0.20),transparent_70%)]" />
-
-        {/* Frame */}
-        <div className="rounded-3xl p-1 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-soft backdrop-blur">
-          <div className="relative overflow-hidden rounded-2xl">
-            {/* subtle top light */}
-            <div className="pointer-events-none absolute inset-x-0 -top-1 h-28 bg-gradient-to-b from-white/15 to-transparent" />
-            <img
-              src={IMG_URL}
-              alt="Portrait of Sajjad Abdullah"
-              loading="lazy"
-              className="block w-full h-auto object-cover"
-              onError={(e) => {
-                e.currentTarget.src =
-                  "data:image/svg+xml;utf8," +
-                  encodeURIComponent(
-                    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='#334155'/><stop offset='1' stop-color='#0f172a'/></linearGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' opacity='0.5' font-family='sans-serif' font-size='28'>Your photo goes here</text></svg>`
-                  );
-              }}
-            />
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
 
 function SectionHeader({ eyebrow, title, kicker }) {
   return (
