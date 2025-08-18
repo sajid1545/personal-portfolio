@@ -22,14 +22,23 @@ const roles = [
     location: "Chattogram, Bangladesh",
     mode: "On-site",
     bullets: [
-      "Shipped responsive UIs with React + Tailwind; audited for a11y and CLS.",
-      "Built/secured REST APIs in Express; data modeling with MongoDB/Mongoose.",
-      "Owned features end-to-end and profiled performance with Chrome DevTools.",
+      "Developed dynamic and responsive user interfaces using React.js and Tailwind CSS, ensuring visually appealing and performant applications.",
+      "Managed backend data with MongoDB and Mongoose, and developed secure APIs using Express.js, tested with Postman.",
+      "Integrated third-party APIs and implemented multiple payment systems , ensuring secure and seamless transactions.",
+      "Worked across the full stack, ensuring seamless integration and high performance of both frontend and backend components.",
     ],
-    tech: ["React", "Tailwind", "Express", "MongoDB", "Mongoose", "Postman"],
+    tech: [
+      "React",
+      "Tailwind",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Postman",
+      "Payment",
+    ],
     tag: "Current",
     details:
-      "At Zentexx I contribute across the stack: accessible React interfaces with Tailwind, secure Express endpoints backed by MongoDB/Mongoose, validation with Postman, and performance tuning using Chrome DevTools.",
+      "At Zentexx I work across the full stack — building responsive and accessible React.js interfaces with Tailwind CSS, securing and testing Express.js APIs with MongoDB/Mongoose, and ensuring smooth system integrations with Postman. I have also integrated third-party APIs and payment systems like Tazapay to enable secure, seamless financial transactions. My role involves end-to-end ownership of features, with a focus on performance optimization, scalability, and reliability.",
   },
   {
     company: "Ekopii",

@@ -1,35 +1,40 @@
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  CheckCircle2,
-  Handshake,
-  Lightbulb,
-  Sparkles,
-  Wrench,
-} from "lucide-react";
+import { CheckCircle2, Handshake, Sparkles, Wrench } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 /* ====== Resume-based groups ====== */
 const SKILLS = {
-  Expertise: [
+  Frontend: [
     "HTML5",
     "CSS3",
     "Tailwind CSS",
     "JavaScript",
     "React.js",
     "React Router DOM",
-  ],
-  Comfortable: [
     "TypeScript",
+    "Redux",
+    "React Query",
+    "React Hook Form",
+    "MUI",
+    "Next.js",
+    "Ant Design",
+  ],
+  Backend: [
     "Express.js",
     "MongoDB",
-    "React Query",
-    "Redux",
-    "React Hook Form",
     "Mongoose",
-    "MUI",
+    "Prisma ORM",
+    "PostgreSQL",
+    "GraphQL",
   ],
-  Familiar: ["Next.js", "Prisma ORM", "Postgres SQL", "Ant Design", "GraphQL"],
-  Tools: ["GitHub", "VS Code", "Firebase", "Netlify", "Chrome DevTools"],
+  "Tools & Platforms": [
+    "GitHub",
+    "VS Code",
+    "Firebase",
+    "Netlify",
+    "Chrome DevTools",
+    "Vercel",
+  ],
 };
 
 /* ====== Pretty gradients per tech (fallback provided) ====== */
@@ -59,16 +64,17 @@ const gradientFor = (t) => {
     Firebase: "from-amber-400 to-orange-500",
     Netlify: "from-teal-400 to-cyan-600",
     "Chrome DevTools": "from-amber-500 to-red-500",
+    Vercel: "from-gray-700 to-black",
   };
   return map[t] || "from-violet-500 to-fuchsia-600";
 };
 
 const ICONS = {
-  Expertise: Sparkles,
-  Comfortable: Handshake,
-  Familiar: Lightbulb,
-  Tools: Wrench,
+  Frontend: Sparkles,
+  Backend: Handshake,
+  "Tools & Platforms": Wrench,
 };
+
 const TABS = ["All", ...Object.keys(SKILLS)];
 
 export default function Skills() {

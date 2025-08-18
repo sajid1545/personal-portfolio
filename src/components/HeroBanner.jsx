@@ -59,6 +59,7 @@ export default function HeroBanner() {
           </motion.div>
 
           {/* headline + animated accent bar */}
+          {/* headline + animated accent bar */}
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 16 },
@@ -68,13 +69,12 @@ export default function HeroBanner() {
             className="mt-3"
           >
             <p className="mb-3 inline-flex items-center gap-2 text-brand-300">
-              <Briefcase size={16} /> Full‑Stack Developer • Chittagong, BD
+              <Briefcase size={16} /> Full-Stack Developer • Chittagong, BD
             </p>
 
             <h1 className="font-display text-4xl md:text-6xl tracking-tight relative">
               Building <span className="text-brand-300">scalable</span>,{" "}
-              <span className="text-brand-300">user‑focused</span> web apps.
-              {/* animated underline bar */}
+              <span className="text-brand-300">user-focused</span> web apps.
               <motion.span
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -83,15 +83,32 @@ export default function HeroBanner() {
                 className="absolute -bottom-2 left-0 h-[3px] w-40 origin-left rounded-full bg-gradient-to-r from-brand-400 via-fuchsia-400 to-cyan-400"
               />
             </h1>
+
+            {/* catchy line */}
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 12 },
+                show: { opacity: 1, y: 0 },
+              }}
+              transition={{
+                duration: 0.5,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.1,
+              }}
+              className="mt-4 text-lg font-medium text-white/90"
+            >
+              I turn ideas into clean, responsive, and production-ready web
+              applications — end to end.
+            </motion.p>
           </motion.div>
 
           {/* subcopy */}
           <motion.p {...fadeUp(0.08)} className="mt-5 text-white/75 max-w-2xl">
-            At <b className="text-white">Zentexx</b> and previously at{" "}
-            <b className="text-white">Ekopii</b>, I’ve shipped responsive
-            interfaces, engineered secure APIs, and delivered features
-            end‑to‑end. React & Tailwind on the front, Node/Express with MongoDB
-            or Postgres/Prisma on the back — pragmatic, fast, and clean.
+            I’ve contributed across the full stack — designing and developing
+            responsive user interfaces, integrating secure APIs, streamlining
+            data flows, and implementing payment solutions. From frontend polish
+            to backend performance, I focus on building fast, reliable, and
+            user-friendly applications.
           </motion.p>
 
           {/* CTAs: magnetic hover + shimmer on résumé */}
@@ -111,6 +128,8 @@ export default function HeroBanner() {
 
             <motion.a
               href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -118,7 +137,7 @@ export default function HeroBanner() {
             >
               {/* subtle shimmer */}
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent [mask-image:linear-gradient(90deg,transparent,black,transparent)] hover:animate-[shimmer_1.2s_ease-in-out] pointer-events-none" />
-              Download résumé
+              View résumé
             </motion.a>
           </motion.div>
         </div>
